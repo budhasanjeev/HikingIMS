@@ -1,0 +1,53 @@
+.logo {
+    float: left;
+    height: 100px;
+}
+
+div#header {
+    height: 100px;
+    margin-bottom: 33px;
+    /* background-color: fuchsia; */
+    z-index: 99999;
+}
+
+.headingTitle {
+    font-family: fantasy;
+    font-size: 217%;
+    padding: 1%;
+}
+
+div.content {
+    clear: both;
+    margin-top: 33px;
+    padding: 26px;
+}
+
+.btnDrop {
+    margin-left: 91%;
+    margin-top: -3%;
+}
+
+div#content {
+    clear: both;
+    margin-top: 98px;
+    padding: 26px;
+}
+
+.imageSlider img {
+    height: 400px;
+    width: 800px;
+    margin-left: 370px;
+}
+
+div#login {
+    margin-top: 12%;
+    width: 31%;
+    height: 20%;
+    margin-left: 40%;
+}
+#login img {
+    margin-left: 27%;
+}
+
+
+

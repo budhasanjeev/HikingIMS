@@ -1,0 +1,27 @@
+#footer {
+    font-size: 0.75em;
+    font-style: italic;
+    padding: 2em 1em 2em 1em;
+    clear: both;
+    margin-top: 33px;
+    text-align: center;
+    background-color: #eee;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+#header{
+
+    top: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+    background-color: #eee;
+
+    clear: both;
+}
+body{
+    background-color:#328896;
+}
