@@ -24,10 +24,12 @@
 # plugin release files
 /*.zip
 /plugin.xml
-
+/*.xml
+/*.iml
 # older plugin install locations
 /plugins
 /web-app/plugins
-
+/.idea
+/.slcache
 # "temporary" build files
 /target
