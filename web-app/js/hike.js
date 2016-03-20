@@ -34,7 +34,7 @@ function createHike(){
 
 
 
-function deleteHiker(id){
+function deleteHike(id){
 
     var answer = confirm("Are you sure?")
 
@@ -61,7 +61,7 @@ function deleteHiker(id){
     return false
 }
 
-function editHiker(id){
+function editHike(id){
 
     $.ajax({
         type:"POST",
@@ -95,7 +95,7 @@ function editHiker(id){
 
 }
 
-function updateHiker(){
+function updateHike(){
 
     var data = $("#createHikerForm").serialize();
 
