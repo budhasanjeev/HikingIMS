@@ -1,4 +1,4 @@
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addRoute"><i class="glyphicon glyphicon-plus">Route</i></button>
+<button type="button" class="btn btn-primary" onclick="changeRoute();"><i class="glyphicon glyphicon-plus">Route</i></button>
 <hr>
 <table class="table">
     <thead>
@@ -12,17 +12,22 @@
     </thead>
 
     <tbody>
-    <tr>
+    <g:if test="${route}">
+        <g:each in="${route}" var="r">
+            <tr>
+                <td>${r.startPoint}</td>
+                <td>${r.finishPoint}</td>
+                <td>${r.difficultyLevel}</td>
+                <td>${r.estimatedTime}</td>
+                <td>
+                    <button onclick="editRoute(${r.id});"><i class="glyphicon glyphicon-edit"></i></button>
+                    <button onclick="deleteRoute(${r.id})"><i class="glyphicon glyphicon-minus-sign"></i></button>
+                    <button><i class="glyphicon glyphicon-eye-open"></i></button>
+                </td>
+            </tr>
+        </g:each>
+    </g:if>
 
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td>
-            <button><i class="glyphicon glyphicon-edit"></i></button>
-            <button><i class="glyphicon glyphicon-minus-sign"></i></button>
-            <button><i class="glyphicon glyphicon-eye-open"></i></button>
-        </td>
-    </tr>
+
     </tbody>
 </table>

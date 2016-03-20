@@ -11,125 +11,104 @@
     <meta content="main" name="layout">
     <title>Admin Panel</title>
 
-    <link rel="stylesheet" type="text/css" href="${resource(dir: 'css', file: '/bootstrap.min.css')}">
+    %{--Stylesheets--}%
+    <link rel="stylesheet" type="text/css" href="${resource(dir: 'css', file: 'bootstrap.min.css')}">
+
+    %{--javascript files--}%
     <script type="text/javascript" src="${resource(dir: 'js',file: 'jquery-1.12.0.min.js')}"></script>
-    <script src="${resource(dir: 'js',file: 'bootstrap.min.js')}"></script>
+    <script src="${resource(dir: 'js',file: 'bootstrap.min.js')}" type="text/javascript"></script>
+    <script src="${resource(dir: 'js',file: 'hiker.js')}" type="text/javascript"></script>
+    <script src="${resource(dir: 'js',file: 'hike.js')}" type="text/javascript"></script>
+    <script src="${resource(dir: 'js',file: 'route.js')}" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        function HikerUrl(){
+            this.saveHikerUrl = "<g:createLink controller="hiker" action="save"/>"
+            this.deleteHikerUrl = "<g:createLink controller="hiker" action="delete"/>"
+            this.editHikerUrl = "<g:createLink controller="hiker" action="edit"/>"
+            this.updateHikerUrl = "<g:createLink controller="hiker" action="update"/>"
+        }
+
+        hikerUrl = new HikerUrl();
+
+        function HikeUrl(){
+            this.saveHikeUrl = "<g:createLink controller="hike" action="save"/>"
+            this.deleteHikeUrl = "<g:createLink controller="hike" action="delete"/>"
+            this.editHikeUrl = "<g:createLink controller="hike" action="edit"/>"
+            this.updateHikeUrl = "<g:createLink controller="hike" action="update"/>"
+        }
+
+        hikeUrl = new HikeUrl();
+
+        function RouteUrl(){
+            this.saveRouteUrl = "<g:createLink controller="route" action="save"/>"
+            this.deleteRouteUrl = "<g:createLink controller="route" action="delete"/>"
+            this.editRouteUrl = "<g:createLink controller="route" action="edit"/>"
+            this.updateRouteUrl = "<g:createLink controller="route" action="update"/>"
+        }
+
+        routeUrl = new RouteUrl();
+
+    </script>
 
     <style>
-        #main{
-            width: 90%;
-            margin: 10% auto;
-        }
-        body{
-            background-color: #319889;
-        }
+    #main{
+        width: 1200px;
+        margin: 10% auto;
+    }
+
     </style>
 
-    <script>
-        $(document).ready(function(){
-            $("#hike_table").hide();
-            $("#hiker_table").show();
-            $("#route_table").hide();
-            $("#batch_table").hide();
-            $("#expense_table").hide();
-        });
 
-        function changeTab(id){
-
-            if(id == 1){
-                $("#hike_table").hide();
-                $("#hiker_table").show();
-                $("#route_table").hide();
-                $("#batch_table").hide();
-                $("#expense_table").hide();
-            }
-            if(id == 2){
-                $("#hike_table").show();
-                $("#hiker_table").hide();
-                $("#route_table").hide();
-                $("#batch_table").hide();
-                $("#expense_table").hide();
-            }
-            if(id == 3){
-                $("#hike_table").hide();
-                $("#hiker_table").hide();
-                $("#route_table").show();
-                $("#batch_table").hide();
-                $("#expense_table").hide();
-            }
-            if(id == 4){
-                $("#hike_table").hide();
-                $("#hiker_table").hide();
-                $("#route_table").hide();
-                $("#batch_table").show();
-                $("#expense_table").hide();
-            }
-            if(id == 5){
-                $("#hike_table").hide();
-                $("#hiker_table").hide();
-                $("#route_table").hide();
-                $("#batch_table").hide();
-                $("#expense_table").show();
-            }
-        }
-    </script>
 </head>
 
 <body>
-    <div id="main">
+<div id="main">
 
-        <div class="navbar navbar-pills">
-
-            <button class="btn btn-primary btn-lg" role="button" id="hiker" onclick="changeTab(1);">Hiker</button>
-            <button class="btn btn-primary btn-lg" role="button" id="hike" onclick="changeTab(2)">Hike</button>
-            <button class="btn btn-primary btn-lg" role="button" id="route" onclick="changeTab(3)">Route</button>
-            <button class="btn btn-primary btn-lg" role="button" id="batch" onclick="changeTab(4)">Batch</button>
-            <button class="btn btn-primary btn-lg" role="button" id="expense" onclick="changeTab(5)">Expense</button>
-        </div>
-
-        <div class="container">
-            <div class="jumbotron" id="hiker_table">
-                <g:render template="/hiker/show"></g:render>
-            </div>
-
-            <div class="jumbotron" id="hike_table">
-               <g:render template="/hike/show"></g:render>
-            </div>
-
-            <div class="jumbotron" id="route_table">
-                <g:render template="/route/show"></g:render>
-            </div>
-
-            <div class="jumbotron" id="batch_table">
-                <g:render template="/batch/show"></g:render>
-            </div>
-
-            <div class="jumbotron" id="expense_table">
-                <g:render template="/expense/show"></g:render>
-            </div>
-
-            <div id="addHiker" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="myModelLabel" aria-hidden="true" style="margin-top: 100px">
-                <g:render template="../hiker/create"/>
-            </div>
-
-            <div id="addHike" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="myModelLabel" aria-hidden="true" style="margin-top: 100px">
-                <g:render template="../hike/create"/>
-            </div>
-
-            <div id="addRoute" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="myModelLabel" aria-hidden="true" style="margin-top: 100px">
-                <g:render template="../route/create"/>
-            </div>
-
-            <div id="addBatch" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="myModelLabel" aria-hidden="true" style="margin-top: 100px">
-                <g:render template="../batch/create"/>
-            </div>
-
-            <div id="addExpense" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="myModelLabel" aria-hidden="true" style="margin-top: 100px">
-                <g:render template="../expense/create"/>
-            </div>
-        </div>
-
-
+    <div>
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#">Hiker</a></li>
+            <li><a href="#">Hike</a></li>
+            <li><a href="#">Route</a></li>
+            <li><a href="#">Expense</a></li>
+        </ul>
     </div>
+
+    <div>
+        <div class="jumbotron" id="hiker_table">
+            <g:render template="/hiker/show"></g:render>
+        </div>
+
+        <div class="jumbotron" id="hike_table">
+            <g:render template="/hike/show"></g:render>
+        </div>
+
+        <div class="jumbotron" id="route_table">
+            <g:render template="/route/show"></g:render>
+        </div>
+
+        <div class="jumbotron" id="expense_table">
+            <g:render template="/expense/show"></g:render>
+        </div>
+
+        <div id="insert-hiker" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="myModelLabel" aria-hidden="true" style="margin-top: 100px">
+            <g:render template="../hiker/create"/>
+        </div>
+
+        <div id="insert-hike" class="modal fade" role="dialog" tabindex="-1" aria-hidden="true" style="margin-top: 100px">
+            <g:render template="../hike/create"/>
+        </div>
+
+        <div id="insert-route" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="myModelLabel" aria-hidden="true" style="margin-top: 100px">
+            <g:render template="../route/create"/>
+        </div>
+
+        <div id="addExpense" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="myModelLabel" aria-hidden="true" style="margin-top: 100px">
+            <g:render template="../expense/create"/>
+        </div>
+    </div>
+
+
+</div>
 </body>
 </html>

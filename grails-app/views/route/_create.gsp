@@ -2,13 +2,14 @@
 
     <div class="modal-content">
 
-        <div class="modal-header" style="background-color: rgb(201, 170, 160)">
+        <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">New Batch</h4>
+            <h4 class="modal-title"></h4>
         </div>
-        <div class="modal-body" style="background-color: rgb(222, 221, 193)">
-            <g:form role="form" class="form-horizontal">
+        <div class="modal-body">
+            <g:form role="form" class="form-horizontal" id="routeForm" name="routeForm">
 
+                <input type="hidden" id="route_id" name="id">
                 <div class="form-group">
                     <label for="startPoint" class="col-sm-4 control-label" >Start Point</label>
                     <div class="col-sm-8">
@@ -26,26 +27,38 @@
                 <div class="form-group">
                     <label for="difficultyLevel" class="col-sm-4 control-label" >Difficulty Level</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="difficultyLevel" name="difficultyLevel" placeholder="Example : Lele">
+                        <g:select name="difficultyLevel" id="difficultyLevel" from="${1..5}" class="form-control" noSelection="['null':'----Select Difficulty Level----']"/>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="estimatedTime" class="col-sm-4 control-label" >Estimated Time</label>
+                    <label class="col-sm-4 control-label" >Estimated Time</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="estimatedTime" name="estimatedTime" placeholder="Example : 4 hrs 30 Secs">
+                        <div class="col-sm-6">
+                            <g:select class="form-control" name="estimatedHours" id="estimatedHours" from="${1..12}" noSelection="['':'--Hours--']" />
+                        </div>
+                        <div class="col-sm-6">
+                            <g:select class="form-control" name="estimatedMins" id="estimatedMins" from="${1..60}" noSelection="['':'--Minutes--']"/>
+                        </div>
                     </div>
                 </div>
 
-
             </g:form>
         </div>
-        <div class="modal-footer" style="background-color: rgb(201, 170, 160)">
-            <button class="btn btn-primary" type="submit" onclick="$('form').submit()">Save</button>
-            <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="submit" id="saveRoute" onclick="return createRoute();">Save</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
         </div>
 
 
     </div>
 
 </div>
+
+<script>
+    $(function() {
+        $('#datetimepicker3').datetimepicker({
+            pickDate: false
+        });
+    });
+</script>

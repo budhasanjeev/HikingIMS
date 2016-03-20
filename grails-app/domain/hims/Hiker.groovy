@@ -12,19 +12,11 @@ class Hiker {
     String rollNumber
     String address
     String foodPreferences
-    Batch batch
+    String batch
 
+    Date createdDate = new Date();
 
     static constraints = {
-        firstName(nullable: false)
         middleName(nullable: true)
-        lastName(nullable: false)
-        mobileNumber(nullable: false)
-        phoneNumber(nullable: false)
-        emailAddress(nullable: false)
-        rollNumber(nullable: false)
-        address(nullable: false)
-        foodPreferences(nullable: false)
-
     }
 }

@@ -1,14 +1,16 @@
+
+
 <div class="modal-dialog">
 
     <div class="modal-content">
 
-        <div class="modal-header" style="background-color: rgb(201, 170, 160)">
+        <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
             <h4 class="modal-title">New Hiker</h4>
         </div>
-        <div class="modal-body" style="background-color: rgb(222, 221, 193)">
-            <g:form role="form" class="form-horizontal">
-
+        <div class="modal-body">
+            <g:form role="form" name="createHikerForm" class="form-horizontal" id="createHikerForm">
+                <input type="hidden" name="id" id="hiker_id">
                 <div class="form-group">
                     <label for="firstName" class="col-sm-4 control-label" >First Name</label>
                     <div class="col-sm-8">
@@ -54,7 +56,14 @@
                 <div class="form-group">
                     <label for="batch" class="col-sm-4 control-label" >Batch</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="batch" name="batch" placeholder="Example : 2016">
+                        <select class="form-control" id="batch" name="batch">
+                           <option>---Select Batch---</option>
+                            <option value="2015">2015</option>
+                            <option value="2016">2016</option>
+                            <option value="2017">2017</option>
+                            <option value="2018">2018</option>
+                            <option value="2019">2019</option>
+                        </select>
                     </div>
                 </div>
 
@@ -76,14 +85,17 @@
                 <div class="form-group">
                     <label for="foodPreference" class="col-sm-4 control-label" >Food Preference</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="foodPreference" name="foodPreference" placeholder="Example : Vegetarian">
+                        <select class="form-control" id="foodPreference" name="foodPreferences">
+                            <option value="Vegetarian">Vegetarian</option>
+                            <option value="Non-Vegetarian">Non-Vegetarian</option>
+                        </select>
                     </div>
                 </div>
 
             </g:form>
         </div>
-        <div class="modal-footer" style="background-color: rgb(201, 170, 160)">
-            <button class="btn btn-primary" type="submit" onclick="$('form').submit()">Save</button>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="submit" id="saveHiker" onclick="return createHiker();">Save</button>
             <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
         </div>
 

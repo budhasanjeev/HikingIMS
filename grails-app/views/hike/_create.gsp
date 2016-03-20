@@ -2,12 +2,12 @@
 
     <div class="modal-content">
 
-        <div class="modal-header" style="background-color: rgb(201, 170, 160)">
+        <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">New Hike</h4>
+            <h4 class="modal-title"></h4>
         </div>
-        <div class="modal-body" style="background-color: rgb(222, 221, 193)">
-            <g:form role="form" class="form-horizontal">
+        <div class="modal-body">
+            <g:form role="form" class="form-horizontal" id="createHikeForm" name="createHikeForm">
 
                 <div class="form-group">
                     <label for="title" class="col-sm-4 control-label" >Title</label>
@@ -17,34 +17,60 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="hikingDate" class="col-sm-4 control-label" >Hiking Date</label>
+                    <label class="col-sm-4 control-label" >Hiking Date</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="hikingDate" name="hikingDate" placeholder="Example : 2/27/2016">
+                        <div class="col-sm-4">
+                            <g:select name="hikingMonth" id="hikingMonth" from="${1..12}" class="form-control" noSelection="['':'--Months--']"/>
+                        </div>
+                        
+                        <div class="col-sm-4">
+                            <g:select name="hikingDay" from="${1..30}" id="hikingDay" noSelection="['':'--Day--']" class="form-control"/>
+                        </div>
+                        
+                        <div class="col-sm-4">
+                            <g:select name="hikingYear" id="hikingYear" from="${2012..2020}" noSelection="['':'--Year--']" class="form-control"/>
+                        </div>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="hikingType" class="col-sm-4 control-label" >Hiking Type</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="hikingType" name="hikingType" placeholder="Example : One Day">
+                        <g:select class="form-control" name="hikingType" id="hikingType" from="${["One Day","Two Days","Cycling"]}" noSelection="['':'--Select Hiking Type--']"/>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="startTime" class="col-sm-4 control-label" >Start Time</label>
+                    <label class="col-sm-4 control-label" >Start Time</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="startTime" name="startTime" placeholder="Example : 7 AM">
+                        <div class="col-sm-4">
+                            <g:select class="form-control" name="startHours" from="${1..12}" noSelection="['':'-Hours-']"/>
+                        </div>
+                        <div class="col-sm-4">
+                            <g:select class="form-control" name="startMins" from="${1..60}" noSelection="['':'-Mins-']"/>
+                        </div>
+                        <div class="col-sm-4">
+                            <g:select class="form-control" name="startAmPM" from="${["AM","PM"]}" noSelection="['':'-AM/PM-']" />
+                        </div>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="finishTime" class="col-sm-4 control-label" >Finish Time</label>
+                    <label class="col-sm-4 control-label" >Finish Time</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="finishTime" name="finishTime" placeholder="Example : 5 PM">
+                        <div class="col-sm-4">
+                            <g:select class="form-control" name="finishHours" from="${1..12}" noSelection="['':'-Hours-']"/>
+                        </div>
+                        <div class="col-sm-4">
+                            <g:select class="form-control" name="finishMins" from="${1..60}" noSelection="['':'-Mins-']"/>
+                        </div>
+                        <div class="col-sm-4">
+                            <g:select class="form-control" name="finishAmPM" from="${["AM","PM"]}" noSelection="['':'-AM/PM-']" />
+                        </div>
                     </div>
                 </div>
 
-                <div class="form-group">
+                %{--<div class="form-group">
                     <label for="injury" class="col-sm-4 control-label" >Injury</label>
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="injury" name="injury" placeholder="Example : No Injury">
@@ -64,11 +90,11 @@
                         <input type="text" class="form-control" id="absentees" name="absentees" placeholder="Example : 4">
                     </div>
                 </div>
-
+--}%
             </g:form>
         </div>
-        <div class="modal-footer" style="background-color: rgb(201, 170, 160)">
-            <button class="btn btn-primary" type="submit" onclick="$('form').submit()">Save</button>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="submit" onclick=" return createHike()">Save</button>
             <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
         </div>
 

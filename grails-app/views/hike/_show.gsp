@@ -1,4 +1,4 @@
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addHike"><i class="glyphicon glyphicon-plus">Hike</i></button>
+<button type="button" class="btn btn-primary" onclick="changeHike()"><i class="glyphicon glyphicon-plus">Hike</i></button>
 <hr>
 <table class="table">
     <thead>
