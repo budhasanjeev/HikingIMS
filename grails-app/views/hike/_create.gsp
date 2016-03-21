@@ -9,6 +9,7 @@
         <div class="modal-body">
             <g:form role="form" class="form-horizontal" id="createHikeForm" name="createHikeForm">
 
+                <input type="hidden" id="hike_id" name="id">
                 <div class="form-group">
                     <label for="title" class="col-sm-4 control-label" >Title</label>
                     <div class="col-sm-8">
@@ -30,6 +31,7 @@
                         <div class="col-sm-4">
                             <g:select name="hikingYear" id="hikingYear" from="${2012..2020}" noSelection="['':'--Year--']" class="form-control"/>
                         </div>
+
                     </div>
                 </div>
 
@@ -44,13 +46,13 @@
                     <label class="col-sm-4 control-label" >Start Time</label>
                     <div class="col-sm-8">
                         <div class="col-sm-4">
-                            <g:select class="form-control" name="startHours" from="${1..12}" noSelection="['':'-Hours-']"/>
+                            <g:select class="form-control" id="startHours" name="startHours" from="${1..12}" noSelection="['':'-Hours-']"/>
                         </div>
                         <div class="col-sm-4">
-                            <g:select class="form-control" name="startMins" from="${1..60}" noSelection="['':'-Mins-']"/>
+                            <g:select class="form-control" id="startMins" name="startMins" from="${1..60}" noSelection="['':'-Mins-']"/>
                         </div>
                         <div class="col-sm-4">
-                            <g:select class="form-control" name="startAmPM" from="${["AM","PM"]}" noSelection="['':'-AM/PM-']" />
+                            <g:select class="form-control" id="startAmPM" name="startAmPM" from="${["AM","PM"]}" noSelection="['':'-AM/PM-']" />
                         </div>
                     </div>
                 </div>
@@ -94,7 +96,7 @@
             </g:form>
         </div>
         <div class="modal-footer">
-            <button class="btn btn-primary" type="submit" onclick=" return createHike()">Save</button>
+            <button class="btn btn-primary" type="submit" id="saveHike" onclick=" return createHike()">Save</button>
             <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
         </div>
 

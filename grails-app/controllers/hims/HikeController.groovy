@@ -16,7 +16,7 @@ class HikeController {
 
     def save(){
 
-        params.hikingDate = params.hikingMonth+"/"+params.hikingDay+"/"+params.hikingYear
+        params.hikingDate = params.hikingMonth+"-"+params.hikingDay+"-"+params.hikingYear
         params.startTime  = params.startHours+":"+params.startMins+" "+params.startAmPM
         params.finishTime  = params.finishHours+":"+params.finishMins+" "+params.finishAmPM
 
@@ -46,19 +46,22 @@ class HikeController {
 
     def edit(){
 
-        def hiker = Hiker.findById(params.id as long)
+        def hike = Hike.findById(params.id as long)
 
-        return render(hiker as JSON)
+        return render(hike as JSON)
     }
 
     def update(){
 
-        println(params.data)
-        def hiker = Hiker.findById(params.id as long)
+        def hike = Hike.findById(params.id as long)
 
-        hiker.properties = params
+        params.hikingDate = params.hikingMonth+"-"+params.hikingDay+"-"+params.hikingYear
+        params.startTime  = params.startHours+":"+params.startMins+" "+params.startAmPM
+        params.finishTime  = params.finishHours+":"+params.finishMins+" "+params.finishAmPM
 
-        if (hiker.save(flush: true)){
+        hike.properties = params
+
+        if (hike.save(flush: true)){
             return render([messageType:"Success"] as JSON)
         }
         else {

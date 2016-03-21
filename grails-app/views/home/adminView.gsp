@@ -20,6 +20,7 @@
     <script src="${resource(dir: 'js',file: 'hiker.js')}" type="text/javascript"></script>
     <script src="${resource(dir: 'js',file: 'hike.js')}" type="text/javascript"></script>
     <script src="${resource(dir: 'js',file: 'route.js')}" type="text/javascript"></script>
+    <script src="${resource(dir: 'js',file: 'expense.js')}" type="text/javascript"></script>
 
     <script type="text/javascript">
         function HikerUrl(){
@@ -48,6 +49,15 @@
         }
 
         routeUrl = new RouteUrl();
+
+        function ExpenseUrl(){
+            this.saveExpenseUrl = "<g:createLink controller="expense" action="save"/>"
+            this.deleteExpenseUrl = "<g:createLink controller="expense" action="delete"/>"
+            this.editExpenseUrl = "<g:createLink controller="expense" action="edit"/>"
+            this.updateExpenseUrl = "<g:createLink controller="expense" action="update"/>"
+        }
+
+        expenseUrl = new ExpenseUrl();
 
     </script>
 
@@ -103,7 +113,7 @@
             <g:render template="../route/create"/>
         </div>
 
-        <div id="addExpense" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="myModelLabel" aria-hidden="true" style="margin-top: 100px">
+        <div id="insert-expense" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="myModelLabel" aria-hidden="true" style="margin-top: 100px">
             <g:render template="../expense/create"/>
         </div>
     </div>

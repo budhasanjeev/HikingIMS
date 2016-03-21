@@ -4,7 +4,7 @@ package hims
 class Hike {
 
     String title
-    Date hikingDate
+    String hikingDate
     String hikingType
     String startTime
     String finishTime

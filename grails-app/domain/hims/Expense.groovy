@@ -10,11 +10,5 @@ class Expense {
     Hike hike;
 
     static constraints = {
-//        breakfast()
-//        snacks()
-//        dinner()
-//        transportation()
-//        providedBudget()
-        hike(nullable: false)
     }
 }

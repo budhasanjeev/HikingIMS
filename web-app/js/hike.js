@@ -42,7 +42,7 @@ function deleteHike(id){
 
         $.ajax({
             type:"POST",
-            url:hikeUrl.deleteUrl,
+            url:hikeUrl.deleteHikeUrl,
             data:{id:id},
             success:function(data){
                 alert(data.messageType);
@@ -65,27 +65,51 @@ function editHike(id){
 
     $.ajax({
         type:"POST",
-        url:hikeUrl.editUrl,
+        url:hikeUrl.editHikeUrl,
         data:{id:id},
         success:function(data){
 
-            $('#firstName').val(data.firstName);
-            $('#middleName').val(data.middleName);
-            $('#lastName').val(data.lastName);
-            $('#mobileNumber').val(data.mobileNumber);
-            $('#phoneNumber').val(data.phoneNumber);
-            $('#emailAddress').val(data.emailAddress);
-            $('#batch').val(data.batch);
-            $('#rollNumber').val(data.rollNumber);
-            $('#address').val(data.address);
-            $('#foodPreference').val(data.foodPreferences);
+            $('#title').val(data.title);
 
-            $('#saveHiker').attr("onclick","return updateHiker();");
-            $('#hiker_id').attr("value",data.id)
+            /*Splitting Date into months/day/year*/
+            var month = data.hikingDate.split("-")[0];
+            var day = data.hikingDate.split("-")[1];
+            var year = data.hikingDate.split("-")[2];
 
-            $('#insert-hiker').modal('show');
-            $('#insert-hiker .modal-title').html("Edit this Hiker")
-            $('#insert-hiker button[type=submit]').html("Save Changes")
+            $('#hikingMonth').val(month);
+            $('#hikingDay').val(day);
+            $('#hikingYear').val(year);
+
+            $('#hikingType').val(data.hikingType);
+
+            /*Splitting start Time*/
+            var hours = data.startTime.split(":")[0];
+            var extra = data.startTime.split(":")[1];
+            var mins = extra.split(" ")[0];
+            var amPM = data.startTime.split(" ")[1];
+
+            $('#startHours').val(hours);
+            $('#startMins').val(mins);
+            $('#startAmPM').val(amPM);
+
+
+            /*Splitting finishTime*/
+            var fhours = data.finishTime.split(":")[0];
+            var fextra = data.finishTime.split(":")[1];
+            var fmins = fextra.split(" ")[0];
+            var famPM = data.finishTime.split(" ")[1];
+
+            $('#finishHours').val(fhours);
+            $('#finishMins').val(fmins);
+            $('#finishAmPM').val(famPM);
+
+
+            $('#saveHike').attr("onclick","return updateHike();");
+            $('#hike_id').attr("value",data.id)
+
+            $('#insert-hike').modal('show');
+            $('#insert-hike .modal-title').html("Edit this Hike")
+            $('#insert-hike button[type=submit]').html("Save Changes")
         },error: function  (er) {
             alert("Error")
         }
@@ -97,11 +121,12 @@ function editHike(id){
 
 function updateHike(){
 
-    var data = $("#createHikerForm").serialize();
+    var data = $("#createHikeForm").serialize();
 
+    alert(data);
     $.ajax({
         type:"POST",
-        url:hikeUrl.updateUrl,
+        url:hikeUrl.updateHikeUrl,
         data:data,
         success:function(data){
             if(data.messageType=="Success"){
