@@ -31,7 +31,8 @@ class HomeController {
 
     @Secured('ROLE_ADMIN')
     def adminView(){
-        model: [hiker:Hiker.all,route:Route.all,hike:Hike.all]
+
+        model: [hiker:Hiker.all,route:Route.all,hike:Hike.all,expense:Expense.all]
     }
 
     @Secured('ROLE_EDITOR')

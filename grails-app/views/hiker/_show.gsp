@@ -30,9 +30,9 @@
                 <td>${hikerList.address}</td>
                 <td>${hikerList.foodPreferences}</td>
                 <td>
-                    <button onclick="editHiker(${hikerList?.id})"><i class="glyphicon glyphicon-edit"></i></button>
-                    <button onclick="deleteHiker(${hikerList?.id})"><i class="glyphicon glyphicon-minus-sign"></i></button>
-                    <button><i class="glyphicon glyphicon-eye-open"></i></button>
+                    <button class="btn btn-success" onclick="editHiker(${hikerList?.id})"><i class="glyphicon glyphicon-edit"></i></button>
+                    <button class="btn btn-danger" onclick="deleteHiker(${hikerList?.id})"><i class="glyphicon glyphicon-minus-sign"></i></button>
+                    <button class="btn btn-info"><i class="glyphicon glyphicon-info-sign"></i></button>
                 </td>
             </tr>
         </g:each>

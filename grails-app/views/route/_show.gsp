@@ -20,9 +20,9 @@
                 <td>${r.difficultyLevel}</td>
                 <td>${r.estimatedTime}</td>
                 <td>
-                    <button onclick="editRoute(${r.id});"><i class="glyphicon glyphicon-edit"></i></button>
-                    <button onclick="deleteRoute(${r.id})"><i class="glyphicon glyphicon-minus-sign"></i></button>
-                    <button><i class="glyphicon glyphicon-eye-open"></i></button>
+                    <button class="btn btn-success" onclick="editRoute(${r.id});"><i class="glyphicon glyphicon-edit"></i></button>
+                    <button class="btn btn-danger" onclick="deleteRoute(${r.id})"><i class="glyphicon glyphicon-minus-sign"></i></button>
+                    <button class="btn btn-info"><i class="glyphicon glyphicon-info-sign"></i></button>
                 </td>
             </tr>
         </g:each>

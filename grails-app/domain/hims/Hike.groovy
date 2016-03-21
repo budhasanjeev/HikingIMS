@@ -9,6 +9,12 @@ class Hike {
     String startTime
     String finishTime
 
+    @Override
+    public String toString()
+    {
+        return title;
+    }
+
     static constraints = {
     }
 }

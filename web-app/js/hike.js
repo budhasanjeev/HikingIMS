@@ -122,8 +122,7 @@ function editHike(id){
 function updateHike(){
 
     var data = $("#createHikeForm").serialize();
-
-    alert(data);
+    
     $.ajax({
         type:"POST",
         url:hikeUrl.updateHikeUrl,
@@ -135,6 +134,35 @@ function updateHike(){
             }else{
                 alert("Error while Updating")
             }
+        },error: function (er) {
+            alert("Error")
+        }
+    });
+    return false;
+}
+
+function addHiker(id){
+
+    $.ajax({
+        type:"GET",
+        url:hikeUrl.addHikerUrl,
+        success:function(data){
+            var table = "<table class='table table-bordered'><thead><tr><th><input type='checkbox'></th><th>Name</th><th>Batch</th></tr></thead>";
+            var tableRow = "";
+
+            for(var i = 0; i < data.length;i++){
+                tableRow += "<tr><td><input type='checkbox'></td><td>" + data[i].firstName+ " "+data[i].lastName+"</td>" +
+                    "<td>"+data[i].batch+"</td></tr>";
+
+            }
+            table = table+tableRow+"</table>"
+
+            $("#select-hiker-table").html(table);
+
+            $("#select-hiker").modal('show');
+            $("#select-hiker .modal-title").html("Select Hikers");
+            $("#select-hiker button[type=submit]").html("Add Hikers");
+
         },error: function (er) {
             alert("Error")
         }

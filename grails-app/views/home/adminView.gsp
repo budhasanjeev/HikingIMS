@@ -21,6 +21,7 @@
     <script src="${resource(dir: 'js',file: 'hike.js')}" type="text/javascript"></script>
     <script src="${resource(dir: 'js',file: 'route.js')}" type="text/javascript"></script>
     <script src="${resource(dir: 'js',file: 'expense.js')}" type="text/javascript"></script>
+    <script src="${resource(dir: 'js',file: 'admin.js')}" type="text/javascript"></script>
 
     <script type="text/javascript">
         function HikerUrl(){
@@ -37,6 +38,8 @@
             this.deleteHikeUrl = "<g:createLink controller="hike" action="delete"/>"
             this.editHikeUrl = "<g:createLink controller="hike" action="edit"/>"
             this.updateHikeUrl = "<g:createLink controller="hike" action="update"/>"
+            this.addHikerUrl = "<g:createLink controller="hike" action="hikerList"/>"
+
         }
 
         hikeUrl = new HikeUrl();
@@ -62,11 +65,13 @@
     </script>
 
     <style>
-    #main{
-        width: 1200px;
-        margin: 10% auto;
-    }
-
+        #main{
+            width: 1200px;
+            margin: 10% auto;
+        }
+        li{
+            background-color: rgba(205, 196, 191, 0.21)
+        }
     </style>
 
 
@@ -77,10 +82,10 @@
 
     <div>
         <ul class="nav nav-tabs">
-            <li class="active"><a href="#">Hiker</a></li>
-            <li><a href="#">Hike</a></li>
-            <li><a href="#">Route</a></li>
-            <li><a href="#">Expense</a></li>
+            <li id="hiker-tab" onclick="changeTab(1);"><a href="#">Hiker</a></li>
+            <li id="hike-tab" onclick="changeTab(2)"><a href="#">Hike</a></li>
+            <li id="route-tab" onclick="changeTab(3)"><a href="#">Route</a></li>
+            <li id="expense-tab" onclick="changeTab(4)"><a href="#">Expense</a></li>
         </ul>
     </div>
 
@@ -115,6 +120,10 @@
 
         <div id="insert-expense" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="myModelLabel" aria-hidden="true" style="margin-top: 100px">
             <g:render template="../expense/create"/>
+        </div>
+
+        <div id="select-hiker" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="myModelLabel" aria-hidden="true" style="margin-top: 100px">
+            <g:render template="../hike/addHiker"/>
         </div>
     </div>
 

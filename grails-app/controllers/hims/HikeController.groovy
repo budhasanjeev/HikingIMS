@@ -70,4 +70,10 @@ class HikeController {
 
     }
 
+    def hikerList(){
+        def hiker = Hiker.all;
+
+        return render(hiker as JSON)
+    }
+
 }

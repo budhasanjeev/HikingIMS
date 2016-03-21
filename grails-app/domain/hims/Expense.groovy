@@ -6,8 +6,10 @@ class Expense {
     double snacks
     double dinner
     double transportation
-    double providedBudget = 8000.00
+    double providedBudget
     Hike hike;
+
+    static fetchMode = [hike:"eager"]
 
     static constraints = {
     }
