@@ -2,6 +2,12 @@
  * Created by sanjeev-budha on 3/19/16.
  */
 
+$(document).ready(function() {
+    $('#route-table').dataTable({
+    "lengthMenu": [[6,12,24,-1],[6,12,24,"ALL"]]
+});
+})
+
 
 function changeRoute(){
     $('#insert-route').modal('show');
