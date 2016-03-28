@@ -1,4 +1,11 @@
 
+$(document).ready(function() {
+    $('#hiker-table').dataTable({
+        "lengthMenu": [[6,12,24,-1],[6,12,24,"ALL"]]
+    });
+})
+
+
 function changeHiker(){
     $('#insert-hiker').modal('show');
     $('#insert-hiker .modal-title').html("Add New Hiker");
