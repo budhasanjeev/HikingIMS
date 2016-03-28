@@ -2,6 +2,13 @@
  * Created by sanjeev-budha on 3/19/16.
  */
 
+$(document).ready(function() {
+    $('#hike-table').dataTable({
+        "lengthMenu": [[6,12,24,-1],[6,12,24,"ALL"]]
+    });
+})
+
+
 function changeHike(){
     $('#insert-hike').modal('show');
     $('#insert-hike .modal-title').html("Add New Hike");
