@@ -21,7 +21,7 @@
 
         <g:each in="${hiker}" var="hikerList">
             <tr>
-                <td>${hikerList.firstName}${hikerList.middleName}${hikerList.lastName}</td>
+                <td>${hikerList.firstName +" "}${hikerList.middleName}${" "+hikerList.lastName}</td>
                 <td>${hikerList.mobileNumber}</td>
                 <td>${hikerList.phoneNumber}</td>
                 <td>${hikerList.emailAddress}</td>

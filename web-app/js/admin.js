@@ -1,15 +1,14 @@
 /**
  * Created by sanjeev-budha on 3/21/16.
  */
-$(document).ready(function(){
 
+$(document).ready(function() {
     $('#hiker_table').show();
     $('#hike_table').hide();
     $('#route_table').hide();
     $('#expense_table').hide();
-    $('#hiker-tab').attr("class","active");
-});
-
+    $('#hiker-tab').attr("class", "active");
+})
 function changeTab(tab){
 
     if(tab == 1) {
@@ -17,6 +16,7 @@ function changeTab(tab){
         $('#hike_table').hide();
         $('#route_table').hide();
         $('#expense_table').hide();
+        $('#hiker-tab').attr("class", "active");
 
     }
     else if(tab == 2){
