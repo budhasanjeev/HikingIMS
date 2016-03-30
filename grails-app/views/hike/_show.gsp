@@ -1,6 +1,6 @@
 <button type="button" class="btn btn-primary" onclick="changeHike()"><i class="glyphicon glyphicon-plus">Hike</i></button>
 <hr>
-<table class="table">
+<table class="table" id="hike-table">
     <thead>
     <tr>
         <th>Title</th>

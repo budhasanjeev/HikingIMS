@@ -13,18 +13,19 @@
 
     %{--Stylesheets--}%
     <link rel="stylesheet" type="text/css" href="${resource(dir: 'css', file: 'bootstrap.min.css')}">
+    <link rel="stylesheet" type="text/css" href="${resource(dir: 'media/css', file: 'jquery.dataTables.css')}">
 
     %{--javascript files--}%
     <script type="text/javascript" src="${resource(dir: 'js',file: 'jquery-1.12.0.min.js')}"></script>
     <script src="${resource(dir: 'js',file: 'bootstrap.min.js')}" type="text/javascript"></script>
-    <script src="${resource(dir: 'js',file: 'admin.js')}" type="text/javascript"></script>
     <script src="${resource(dir: 'js',file: 'hiker.js')}" type="text/javascript"></script>
     <script src="${resource(dir: 'js',file: 'hike.js')}" type="text/javascript"></script>
     <script src="${resource(dir: 'js',file: 'route.js')}" type="text/javascript"></script>
     <script src="${resource(dir: 'js',file: 'expense.js')}" type="text/javascript"></script>
+    <script src="${resource(dir: 'js',file: 'admin.js')}" type="text/javascript"></script>
+    <script src="${resource(dir: 'media/js',file: 'jquery.dataTables.min.js')}" type="text/javascript"></script>
 
     <script type="text/javascript">
-
         function HikerUrl(){
             this.saveHikerUrl = "<g:createLink controller="hiker" action="save"/>"
             this.deleteHikerUrl = "<g:createLink controller="hiker" action="delete"/>"
@@ -74,7 +75,6 @@
             background-color: rgba(205, 196, 191, 0.21)
         }
     </style>
-
 
 </head>
 

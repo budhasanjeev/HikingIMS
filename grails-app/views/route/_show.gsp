@@ -1,6 +1,8 @@
 <button type="button" class="btn btn-primary" onclick="changeRoute();"><i class="glyphicon glyphicon-plus">Route</i></button>
+
+
 <hr>
-<table class="table">
+<table class="table" id="route-table">
     <thead>
     <tr>
         <th>Start Point</th>
@@ -31,3 +33,4 @@
 
     </tbody>
 </table>
+

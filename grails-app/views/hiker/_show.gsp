@@ -1,7 +1,7 @@
 
 <button type="button" class="btn btn-primary" id="add-button" onclick="changeHiker();"><i class="glyphicon glyphicon-plus">Hiker</i></button>
 <hr>
-<table class="table">
+<table class="table" id="hiker-table">
     <thead>
     <tr>
         <th>Full Name</th>

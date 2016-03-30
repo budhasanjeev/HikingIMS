@@ -1,7 +1,7 @@
 <%@ page import="hims.Hike" %>
 <button type="button" class="btn btn-primary" onclick="changeExpense();"><i class="glyphicon glyphicon-plus">Expense</i></button>
 <hr>
-<table class="table">
+<table id="expense-table" class="display" width="100%" cellspacing="0">
     <thead>
     <tr>
         <th>Hike</th>
