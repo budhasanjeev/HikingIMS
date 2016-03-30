@@ -5,6 +5,15 @@
  * Created by sanjeev-budha on 3/19/16.
  */
 
+$(document).ready(function(){
+    $('#expense-table').DataTable(
+        {
+            "lengthMenu": [[6,12,24,-1],[6,12,24,"ALL"]]
+        }
+    );
+
+
+})
 function changeExpense(){
     $('#insert-expense').modal('show');
     $('#insert-expense .modal-title').html("Add New Expense");
@@ -17,7 +26,6 @@ function createExpense(){
 
     var data = $("#createExpenseForm").serialize();
 
-    alert(data)
     $.ajax({
         type:"POST",
         url:expenseUrl.saveExpenseUrl,
