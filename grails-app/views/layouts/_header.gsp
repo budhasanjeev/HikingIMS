@@ -1,7 +1,7 @@
 
 <link href="${resource(dir: 'css', file: 'hims.css')}" rel="stylesheet" type="text/css">
 
-<div id="header">
+<div class="navbar navbar-default navbar-fixed-top">
 
     <div class="logo">
         <g:link controller="home" action="index">
