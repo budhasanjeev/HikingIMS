@@ -5,11 +5,12 @@
     <thead>
     <tr>
         <th>Hike</th>
+        <th>Provided Fund</th>
         <th>Breakfast</th>
         <th>Snacks</th>
         <th>Dinner</th>
         <th>Transportation</th>
-        <th>Provided Fund</th>
+
         <th>Actions</th>
     </tr>
     </thead>
@@ -20,11 +21,12 @@
         <g:each in="${expense}" var="e">
             <tr>
                 <td>${hims.Hike.findById(e.hikeId).title}</td>
+                <td>${e.providedBudget}</td>
                 <td>${e.breakfast}</td>
                 <td>${e.snacks}</td>
                 <td>${e.dinner}</td>
                 <td>${e.transportation}</td>
-                <td>${e.providedBudget}</td>
+
                 <td>
                     <button class="btn btn-success" onclick="editExpense(${e.id})"><i class=" glyphicon glyphicon-edit"></i></button>
                     <button class="btn btn-danger" onclick="deleteExpense(${e.id})"><i class="glyphicon glyphicon-minus-sign"></i></button>

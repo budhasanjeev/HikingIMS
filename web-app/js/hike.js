@@ -150,6 +150,7 @@ function updateHike(){
 
 function addHiker(id){
 
+
     $.ajax({
         type:"GET",
         url:hikeUrl.addHikerUrl,

@@ -11,14 +11,14 @@
 
                 <input type="hidden" id="hike_id" name="id">
                 <div class="form-group">
-                    <label for="title" class="col-sm-4 control-label" >Title</label>
+                    <label for="title" class="col-sm-4 control-label"  >Title</label>
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="title" name="title" placeholder="Example : Godawari To Lele">
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="col-sm-4 control-label" >Hiking Date</label>
+                    <label class="col-sm-4 control-label">Hiking Date</label>
                     <div class="col-sm-8">
 
                         <div class="col-sm-4">

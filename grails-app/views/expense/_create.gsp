@@ -19,12 +19,26 @@
                                   optionKey="id"
                         />
                     </div>
-                </div>
+                    <div class="col-sm-8" id="hikeDiv">
 
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="providedBudget" class="col-sm-4 control-label" >Provided Fund</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="providedBudget" name="providedBudget" placeholder="Example : 8500">
+                    </div>
+                    <div class="col-sm-8" id="ProvidedBudgetDiv">
+
+                    </div>
+                </div>
                 <div class="form-group">
                     <label for="breakfast" class="col-sm-4 control-label" >Breakfast</label>
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="breakfast" name="breakfast" placeholder="Example : Rs. 1000">
+                    </div>
+                    <div class="col-sm-8" id="breakfastDiv">
+
                     </div>
                 </div>
 
@@ -33,12 +47,18 @@
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="snacks" name="snacks" placeholder="Example : 2300">
                     </div>
+                    <div class="col-sm-8" id="snacksDiv">
+
+                    </div>
                 </div>
 
                 <div class="form-group">
                     <label for="dinner" class="col-sm-4 control-label" >Dinner</label>
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="dinner" name="dinner" placeholder="Example : 4500">
+                    </div>
+                    <div class="col-sm-8" id="dinnerDiv">
+
                     </div>
                 </div>
 
@@ -47,14 +67,12 @@
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="transportation" name="transportation" placeholder="Example : 500">
                     </div>
-                </div>
+                    <div class="col-sm-8" id="transportationDiv">
 
-                <div class="form-group">
-                    <label for="providedBudget" class="col-sm-4 control-label" >Provided Fund</label>
-                    <div class="col-sm-8">
-                        <input type="text" class="form-control" id="providedBudget" name="providedBudget" placeholder="Example : 8500">
                     </div>
                 </div>
+
+
 
             </g:form>
         </div>
