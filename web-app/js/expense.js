@@ -62,6 +62,7 @@ function check(){
     //    $("#hike").focus();
     //    document.getElementById('hikeDiv').innerHTML = "Hike is alphabet!!!!";
     //    flag =  false;
+    //
     //}
     if(!providedBudget){
         $("#providedBudget").focus();
