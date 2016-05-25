@@ -24,20 +24,6 @@ $(document).ready(function() {
 })
 
 
-//function formValidation()
-//{
-//    var sPoint = $("#startPoint").val();
-//    var fPoint = $("#finalPoint").val();
-//    var dLevel = $("#difficultyLevel").val();
-//    var eHours = $("#estimatedHours").val();
-//    var eMins = $("#estimatedMins").val();
-//
-//    if(!sPoint){
-//        $("#startPoint").focus();
-//        $("#startPoint").innerHTML("here");
-//    }
-//
-//}
 
 
 function changeRoute(){
