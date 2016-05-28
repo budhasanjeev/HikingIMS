@@ -467,4 +467,3 @@ function addHiker(id){
     return false;
 }
 
-//
