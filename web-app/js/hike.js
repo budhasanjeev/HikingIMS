@@ -6,7 +6,132 @@ $(document).ready(function() {
     $('#hike-table').dataTable({
         "lengthMenu": [[6,12,24,-1],[6,12,24,"ALL"]]
     });
+    $("#title").on("click",function(){
+        document.getElementById('titleDiv').innerHTML = "";
+    })
+    $("#hikingMonth").click(function(){
+        document.getElementById('hikingDateDiv').innerHTML = "";
+    })
+    $("#hikingDay").click(function(){
+        document.getElementById('hikingDateDiv').innerHTML = "";
+    })
+    $("#hikingYear").click(function(){
+        document.getElementById('hikingDateDiv').innerHTML = "";
+    })
+    $("#hikingType").click(function(){
+        document.getElementById('hikingTypeDiv').innerHTML = "";
+    })
+    $("#startHours").click(function(){
+        document.getElementById('startTimeDiv').innerHTML = "";
+    })
+    $("#startMins").click(function(){
+        document.getElementById('startTimeDiv').innerHTML = "";
+    })
+    $("#startAmPM").click(function(){
+        document.getElementById('startTimeDiv').innerHTML = "";
+    })
+    $("#finishHours").click(function(){
+        document.getElementById('finishTimeDiv').innerHTML = "";
+    })
+    $("#fininshMins").click(function(){
+        document.getElementById('finishTimeDiv').innerHTML = "";
+    })
+    $("#finishAmPM").click(function(){
+        document.getElementById('finishTimeDiv').innerHTML = "";
+    })
+
+
 })
+
+
+function check(){
+    flag = true;
+    var title = $("#title").val();
+    var hMonth = $("#hikingMonth").val();
+    var hDay = $("#hikingDay").val();
+    var hYear = $("#hikingYear").val();
+    var hType = $("#hikingType").val();
+    var sHour = $("#startHours").val();
+    var sMin = $("#startMins").val();
+    var sAmPm = $("#startAmPM").val();
+    var fHour = $("#finishHours").val();
+    var fMin = $("#finishMins").val();
+    var fAmPm = $("#finishAmPM").val();
+    var letters = /^[a-zA-Z]+$/;
+
+
+    if(!title){
+        $("#title").focus();
+        document.getElementById('titleDiv').innerHTML = "Title is empty!!!!";
+        flag =  false;
+    }
+    else if(!title.match(letters))
+    {
+        $("#title").focus();
+        document.getElementById('titleDiv').innerHTML = "Title is numeric!!!!";
+        flag =  false;
+    }
+    else if(!hMonth) {
+        $("#hikingMonth").focus();
+        document.getElementById('hikingDateDiv').innerHTML = "Date point is empty!!!!";
+        flag = false;
+    }
+    else if(!hDay){
+        $("#hikingDay").focus();
+        document.getElementById('hikingDateDiv').innerHTML = "Date point is empty!!!!";
+        flag = false;
+    }
+    else if(!hYear){
+        $("#hikingYear").focus();
+        document.getElementById('hikingDateDiv').innerHTML = "Date point is empty!!!!";
+        flag = false;
+    }
+
+
+
+    else  if(hType=='')
+    {
+        $("#hikingType").focus();
+        document.getElementById('hikingTypeDiv').innerHTML = "Select hiking type";
+        flag =  false;
+    }
+    else if(sHour=='') {
+        $("#startHours").focus();
+        document.getElementById('startTimeDiv').innerHTML = "Select Time";
+        flag = false;
+    }
+    else if(sMin=='')
+    {
+        $("#startMins").focus();
+        document.getElementById('startTimeDiv').innerHTML ="Select Time";
+        flag = false;
+    }
+    else if(sAmPm=='')
+    {
+        $("#startAmPM").focus();
+        document.getElementById('startTimeDiv').innerHTML ="Select Time";
+        flag = false;
+    }
+    else if(fHour=='') {
+        $("#finishHours").focus();
+        document.getElementById('finishTimeDiv').innerHTML = "Select Time";
+        flag = false;
+    }
+    else if(fMin=='')
+    {
+        $("#finishMins").focus();
+        document.getElementById('finishTimeDiv').innerHTML ="Select Time";
+        flag = false;
+    }
+    else if(fAmPm=='')
+    {
+        $("#finishAmPM").focus();
+        document.getElementById('finishTimeDiv').innerHTML ="Select Time";
+        flag = false;
+    }
+
+    return flag;
+}
 
 
 function changeHike(){
@@ -18,6 +143,88 @@ function changeHike(){
 }
 
 function createHike(){
+    var title = $("#title").val();
+    var hMonth = $("#hikingMonth").val();
+    var hDay = $("#hikingDay").val();
+    var hYear = $("#hikingYear").val();
+    var hType = $("#hikingType").val();
+    var sHour = $("#startHours").val();
+    var sMin = $("#startMins").val();
+    var sAmPm = $("#startAmPM").val();
+    var fHour = $("#finishHours").val();
+    var fMin = $("#finishMins").val();
+    var fAmPm = $("#finishAmPM").val();
+    var letters = /^[a-zA-Z]+$/;
+
+
+    if(!title){
+        $("#title").focus();
+        document.getElementById('titleDiv').innerHTML = "Title is empty!!!!";
+        return false;
+    }
+    if(!title.match(letters))
+    {
+        $("#title").focus();
+        document.getElementById('titleDiv').innerHTML = "Title is numeric!!!!";
+        return false;
+    }
+    if(!hMonth) {
+        $("#hikingMonth").focus();
+        document.getElementById('hikingDateDiv').innerHTML = "Date point is empty!!!!";
+        return false;
+    }
+    if(!hDay){
+        $("#hikingDay").focus();
+        document.getElementById('hikingDateDiv').innerHTML = "Date point is empty!!!!";
+        return false;
+    }
+    if(!hYear){
+        $("#hikingYear").focus();
+        document.getElementById('hikingDateDiv').innerHTML = "Date point is empty!!!!";
+        return false;
+    }
+
+
+
+    if(hType=='')
+    {
+        $("#hikingType").focus();
+        document.getElementById('hikingTypeDiv').innerHTML = "Select hiking type";
+        return false;
+    }
+    if(sHour=='') {
+        $("#startHours").focus();
+        document.getElementById('startTimeDiv').innerHTML = "Select Time";
+        return false;
+    }
+    if(sMin=='')
+    {
+        $("#startMins").focus();
+        document.getElementById('startTimeDiv').innerHTML ="Select Time";
+        return false;
+    }
+    if(sAmPm=='') {
+        $("#startAmPM").focus();
+        document.getElementById('startTimeDiv').innerHTML = "Select Time";
+        return false;
+    }
+    if(fHour=='') {
+        $("#finishHours").focus();
+        document.getElementById('finishTimeDiv').innerHTML = "Select Time";
+        return false;
+    }
+    if(fMin=='')
+    {
+        $("#finishMins").focus();
+        document.getElementById('finishTimeDiv').innerHTML ="Select Time";
+        return false;
+    }
+    if(fAmPm=='')
+    {
+        $("#finishAmPM").focus();
+        document.getElementById('finishTimeDiv').innerHTML ="Select Time";
+        return false;
+    }
 
     var data = $("#createHikeForm").serialize();
 
@@ -127,7 +334,89 @@ function editHike(id){
 }
 
 function updateHike(){
+    var title = $("#title").val();
+    var hMonth = $("#hikingMonth").val();
+    var hDay = $("#hikingDay").val();
+    var hYear = $("#hikingYear").val();
+    var hType = $("#hikingType").val();
+    var sHour = $("#startHours").val();
+    var sMin = $("#startMins").val();
+    var sAmPm = $("#startAmPM").val();
+    var fHour = $("#finishHours").val();
+    var fMin = $("#finishMins").val();
+    var fAmPm = $("#finishAmPM").val();
+    var letters = /^[a-zA-Z]+$/;
 
+
+    if(!title){
+        $("#title").focus();
+        document.getElementById('titleDiv').innerHTML = "Title is empty!!!!";
+        return false;
+    }
+    if(!title.match(letters))
+    {
+        $("#title").focus();
+        document.getElementById('titleDiv').innerHTML = "Title is numeric!!!!";
+        return false;
+    }
+    if(!hMonth) {
+        $("#hikingMonth").focus();
+        document.getElementById('hikingDateDiv').innerHTML = "Date point is empty!!!!";
+        return false;
+    }
+    if(!hDay){
+        $("#hikingDay").focus();
+        document.getElementById('hikingDateDiv').innerHTML = "Date point is empty!!!!";
+        return false;
+    }
+    if(!hYear){
+        $("#hikingYear").focus();
+        document.getElementById('hikingDateDiv').innerHTML = "Date point is empty!!!!";
+        return false;
+    }
+
+
+
+    if(hType=='')
+    {
+        $("#hikingType").focus();
+        document.getElementById('hikingTypeDiv').innerHTML = "Select hiking type";
+        return false;
+    }
+    if(sHour=='') {
+        $("#startHours").focus();
+        document.getElementById('startTimeDiv').innerHTML = "Select Time";
+        return false;
+    }
+    if(sMin=='')
+    {
+        $("#startMins").focus();
+        document.getElementById('startTimeDiv').innerHTML ="Select Time";
+        return false;
+    }
+    if(sAmPm=='')
+    {
+        $("#startAmPM").focus();
+        document.getElementById('startTimeDiv').innerHTML ="Select Time";
+        return false;
+    }
+    if(fHour=='') {
+        $("#finishHours").focus();
+        document.getElementById('finishTimeDiv').innerHTML = "Select Time";
+        return false;
+    }
+    if(fMin=='')
+    {
+        $("#finishMins").focus();
+        document.getElementById('finishTimeDiv').innerHTML ="Select Time";
+        return false;
+    }
+    if(fAmPm=='')
+    {
+        $("#finishAmPM").focus();
+        document.getElementById('finishTimeDiv').innerHTML ="Select Time";
+        return false;
+    }
     var data = $("#createHikeForm").serialize();
     
     $.ajax({
