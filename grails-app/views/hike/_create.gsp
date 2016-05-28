@@ -123,7 +123,7 @@
                         <input type="text" class="form-control" id="absentees" name="absentees" placeholder="Example : 4">
                     </div>
                 </div>
---}%//
+--}%
             </g:form>
         </div>
         <div class="modal-footer">
