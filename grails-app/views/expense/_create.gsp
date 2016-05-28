@@ -28,7 +28,10 @@
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="providedBudget" name="providedBudget" placeholder="Example : 8500">
                     </div>
-                    <div class="col-sm-8" id="ProvidedBudgetDiv">
+                    <div class="col-sm-4">
+
+                    </div>
+                    <div class="col-sm-8" id="providedBudgetDiv" style="color: #FF0000">
 
                     </div>
                 </div>
@@ -37,7 +40,10 @@
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="breakfast" name="breakfast" placeholder="Example : Rs. 1000">
                     </div>
-                    <div class="col-sm-8" id="breakfastDiv">
+                    <div class="col-sm-4">
+
+                    </div>
+                    <div class="col-sm-8" id="breakfastDiv" style="color: #FF0000">
 
                     </div>
                 </div>
@@ -47,7 +53,10 @@
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="snacks" name="snacks" placeholder="Example : 2300">
                     </div>
-                    <div class="col-sm-8" id="snacksDiv">
+                    <div class="col-sm-4">
+
+                    </div>
+                    <div class="col-sm-8" id="snacksDiv" style="color: #FF0000">
 
                     </div>
                 </div>
@@ -57,7 +66,10 @@
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="dinner" name="dinner" placeholder="Example : 4500">
                     </div>
-                    <div class="col-sm-8" id="dinnerDiv">
+                    <div class="col-sm-4">
+
+                    </div>
+                    <div class="col-sm-8" id="dinnerDiv" style="color: #FF0000">
 
                     </div>
                 </div>
@@ -67,7 +79,10 @@
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="transportation" name="transportation" placeholder="Example : 500">
                     </div>
-                    <div class="col-sm-8" id="transportationDiv">
+                    <div class="col-sm-4">
+
+                    </div>
+                    <div class="col-sm-8" id="transportationDiv" style="color: #FF0000">
 
                     </div>
                 </div>
