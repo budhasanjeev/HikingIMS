@@ -15,7 +15,10 @@
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="startPoint" name="startPoint" placeholder="Example : Godawari">
                     </div>
-                    <div class="col-sm-8" id="startPointDiv">
+                    <div class="col-sm-4">
+
+                    </div>
+                    <div class="col-sm-8" id="startPointDiv" style="color: #FF0000">
 
                     </div>
                 </div>
@@ -25,7 +28,10 @@
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="finishPoint" name="finishPoint" placeholder="Example : Lele">
                     </div>
-                    <div class="col-sm-8" id="finishPointDiv">
+                    <div class="col-sm-4">
+
+                    </div>
+                    <div class="col-sm-8" id="finishPointDiv" style="color: #FF0000">
 
                     </div>
                 </div>
@@ -35,7 +41,10 @@
                     <div class="col-sm-8">
                         <g:select name="difficultyLevel" id="difficultyLevel" from="${1..5}" class="form-control" noSelection="['':'----Select Difficulty Level----']"/>
                     </div>
-                    <div class="col-sm-8" id="difficultyLevelDiv">
+                    <div class="col-sm-4">
+
+                    </div>
+                    <div class="col-sm-8" id="difficultyLevelDiv" style="color: #FF0000">
 
                     </div>
                 </div>
@@ -49,10 +58,16 @@
                         <div class="col-sm-6">
                             <g:select class="form-control" name="estimatedMins" id="estimatedMins" from="${1..60}" noSelection="['':'--Minutes--']"/>
                         </div>
-                    </div>
-                    <div class="col-sm-8" id="eTimeDiv">
+                        <div class="col-sm-4">
 
+                        </div>
+                        <div class="col-sm-8" id="eTimeDiv" style="color: #FF0000">
+
+                        </div>
                     </div>
+
+
+
                 </div>
 
             </g:form>
