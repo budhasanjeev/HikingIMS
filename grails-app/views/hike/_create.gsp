@@ -15,6 +15,12 @@
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="title" name="title" placeholder="Example : Godawari To Lele">
                     </div>
+                    <div class="col-sm-4">
+
+                    </div>
+                    <div class="col-sm-8" id="titleDiv" style="color: #FF0000">
+
+                    </div>
                 </div>
 
                 <div class="form-group">
@@ -32,6 +38,12 @@
                         <div class="col-sm-4">
                             <g:select name="hikingYear" id="hikingYear" from="${2012..2020}" noSelection="['':'--Year--']" class="form-control"/>
                         </div>
+                        <div class="col-sm-4">
+
+                        </div>
+                        <div class="col-sm-8" id="hikingDateDiv" style="color: #FF0000">
+
+                        </div>
 
                     </div>
                 </div>
@@ -40,6 +52,12 @@
                     <label for="hikingType" class="col-sm-4 control-label" >Hiking Type</label>
                     <div class="col-sm-8">
                         <g:select class="form-control" name="hikingType" id="hikingType" from="${["One Day","Two Days","Cycling"]}" noSelection="['':'--Select Hiking Type--']"/>
+                    </div>
+                    <div class="col-sm-4">
+
+                    </div>
+                    <div class="col-sm-8" id="hikingTypeDiv" style="color: #FF0000">
+
                     </div>
                 </div>
 
@@ -55,6 +73,12 @@
                         <div class="col-sm-4">
                             <g:select class="form-control" id="startAmPM" name="startAmPM" from="${["AM","PM"]}" noSelection="['':'-AM/PM-']" />
                         </div>
+                        <div class="col-sm-4">
+
+                        </div>
+                        <div class="col-sm-8" id="startTimeDiv" style="color: #FF0000">
+
+                        </div>
                     </div>
                 </div>
 
@@ -62,13 +86,19 @@
                     <label class="col-sm-4 control-label" >Finish Time</label>
                     <div class="col-sm-8">
                         <div class="col-sm-4">
-                            <g:select class="form-control" name="finishHours" from="${1..12}" noSelection="['':'-Hours-']"/>
+                            <g:select class="form-control" name="finishHours" id="finishHours" from="${1..12}" noSelection="['':'-Hours-']"/>
                         </div>
                         <div class="col-sm-4">
-                            <g:select class="form-control" name="finishMins" from="${1..60}" noSelection="['':'-Mins-']"/>
+                            <g:select class="form-control" name="finishMins" id="finishMins" from="${1..60}" noSelection="['':'-Mins-']"/>
                         </div>
                         <div class="col-sm-4">
-                            <g:select class="form-control" name="finishAmPM" from="${["AM","PM"]}" noSelection="['':'-AM/PM-']" />
+                            <g:select class="form-control" name="finishAmPM" id="finishAmPM" from="${["AM","PM"]}" noSelection="['':'-AM/PM-']" />
+                        </div>
+                        <div class="col-sm-4">
+
+                        </div>
+                        <div class="col-sm-8" id="finishTimeDiv" style="color: #FF0000">
+
                         </div>
                     </div>
                 </div>
