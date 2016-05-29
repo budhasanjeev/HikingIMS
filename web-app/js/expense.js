@@ -64,14 +64,9 @@ function check(){
     //    flag =  false;
     //
     //}
-    if(!providedBudget){
+    if (!providedBudget){
         $("#providedBudget").focus();
-        document.getElementById('providedBudgetDiv').innerHTML = "Provided Fund is empty!!!!";
-        flag =  false;
-    }
-    else if(!providedBudget.match(numbers)){
-        $("#providedBudget").focus();
-        document.getElementById('providedBudgetDiv').innerHTML = "Provided Fund is alphabet!!!!";
+        document.getElementById('providedBudget').innerHTML = "Budget is empty";
         flag = false;
     }
     else if(!breakfast){
@@ -147,7 +142,7 @@ function createExpense(){
 
     var letters = /^[a-zA-Z]+$/;
     var numbers = /^[0-9]+$/;
-    console.log("providefund="+providedBudget+"\n");
+    console.log("providedfund="+providedBudget+"\n");
     console.log("breakfast"+breakfast+"\n");
 
     if(!providedBudget){
@@ -160,6 +155,7 @@ function createExpense(){
         document.getElementById('providedBudgetDiv').innerHTML = "Provided Fund is alphabet!!!!";
         return false;
     }
+
 
     if(!breakfast){
         $("#breakfast").focus();
