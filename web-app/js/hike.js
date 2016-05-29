@@ -439,16 +439,15 @@ function updateHike(){
 
 function addHiker(id){
 
-
     $.ajax({
         type:"GET",
         url:hikeUrl.addHikerUrl,
         success:function(data){
-            var table = "<table class='table table-bordered'><thead><tr><th><input type='checkbox'></th><th>Name</th><th>Batch</th></tr></thead>";
+            var table = "<table class='table table-bordered' id='userList'><thead><tr><th><input type='hidden' name='hikeId' value='"+id+"'/><input type='checkbox' onclick='toggle(this)'></th><th>Name</th><th>Batch</th></tr></thead>";
             var tableRow = "";
 
             for(var i = 0; i < data.length;i++){
-                tableRow += "<tr><td><input type='checkbox'></td><td>" + data[i].firstName+ " "+data[i].lastName+"</td>" +
+                tableRow += "<tr><td><input type='checkbox' name='hiker_id' value='"+data[i].id+ "'></td><td>" + data[i].firstName+ " "+data[i].lastName+"</td>" +
                     "<td>"+data[i].batch+"</td></tr>";
 
             }
@@ -467,3 +466,32 @@ function addHiker(id){
     return false;
 }
 
+function addHikers() {
+
+    var data = $('#hikerLists').serialize();
+
+    $.ajax({
+        type: "POST",
+        url: hikeUrl.addHikeHikerUrl,
+        data: data,
+        success: function (data) {
+            if (data.messageType == "Success") {
+                alert("Successfully Added")
+                window.location.reload(true);
+            } else {
+                alert("Error while Updating")
+            }
+        }, error: function (er) {
+            alert("Error")
+        }
+    })
+
+}
+
+function toggle(source) {
+    var checkboxes = document.getElementsByName('hiker_id');
+
+    for(var i=0, n=checkboxes.length;i<n;i++) {
+        checkboxes[i].checked = source.checked;
+    }
+}

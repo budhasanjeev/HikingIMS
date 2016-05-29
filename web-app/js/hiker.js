@@ -548,3 +548,33 @@ function updateHiker(){
     return false;
 }
 
+function additionalInfo(id){
+
+    $.ajax({
+        type:"POST",
+        url:hikerUrl.infoUrl,
+        data:{id:id},
+        success: function (data) {
+
+            var table = "<table class='table table-bordered' id='hikingHis'><thead><tr></th><th>Hike Title</th><th>Hiking Date</th></tr></thead>";
+            var tableRow = "";
+
+            for(var i = 0; i < data.hikeInformation.length;i++){
+                tableRow += "<tr><td>"+data.hikeInformation[i].title+"</td><td>" + data.hikeInformation[i].hikingDate+"</td></tr>";
+
+            }
+            table = table+tableRow+"</table>"
+
+            $("#hiking-history").html(table);
+
+            $("#hikingHistory").modal('show');
+            $("#hikingHistory .modal-title").html("Hiking History");
+
+        },
+        error: function (err) {
+            alert(err);
+        }
+
+    });
+}
+
