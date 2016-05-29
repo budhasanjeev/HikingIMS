@@ -97,4 +97,15 @@ class HikeController {
         return render([messageType:"Success"] as JSON)
     }
 
+    def infoHike(){
+        def hike = Hike.findById(params.id as long)
+        def hikerList = HikeAndHiker.findAllByHike(hike)
+        def selectedHikerList = []
+
+        hikerList.each {
+            selectedHikerList.add(Hiker.findById(it.hiker.id))
+        }
+
+        return render(selectedHikerList as JSON)
+    }
 }
