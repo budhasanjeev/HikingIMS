@@ -44,6 +44,7 @@
             this.updateHikeUrl = "<g:createLink controller="hike" action="update"/>"
             this.addHikerUrl = "<g:createLink controller="hike" action="hikerList"/>"
             this.addHikeHikerUrl = "<g:createLink controller="hike" action="addHikerHike"/>"
+            this.infoHikeUrl = "<g:createLink controller="hike" action="infoHike"/>"
 
         }
 
@@ -110,31 +111,33 @@
             <g:render template="/expense/show"></g:render>
         </div>
 
-        <div id="insert-hiker" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="myModelLabel" aria-hidden="true" style="margin-top: 100px">
+        <div id="insert-hiker" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="myModelLabel" aria-hidden="true">
             <g:render template="../hiker/create"/>
         </div>
 
-        <div id="insert-hike" class="modal fade" role="dialog" tabindex="-1" aria-hidden="true" style="margin-top: 100px">
+        <div id="insert-hike" class="modal fade" role="dialog" tabindex="-1" aria-hidden="true">
             <g:render template="../hike/create"/>
         </div>
 
-        <div id="insert-route" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="myModelLabel" aria-hidden="true" style="margin-top: 100px">
+        <div id="insert-route" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="myModelLabel" aria-hidden="true">
             <g:render template="../route/create"/>
         </div>
 
-        <div id="insert-expense" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="myModelLabel" aria-hidden="true" style="margin-top: 100px">
+        <div id="insert-expense" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="myModelLabel" aria-hidden="true">
             <g:render template="../expense/create"/>
         </div>
 
-        <div id="select-hiker" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="myModelLabel" aria-hidden="true" style="margin-top: 100px">
+        <div id="select-hiker" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="myModelLabel" aria-hidden="true">
             <g:render template="../hike/addHiker"/>
         </div>
 
-        <div id="hikingHistory" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="myModelLabel" aria-hidden="true" style="margin-top: 100px">
+        <div id="hikingHistory" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="myModelLabel" aria-hidden="true">
             <g:render template="../hiker/additionalInfo"/>
         </div>
 
-
+        <div id="hikeHistory" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="myModelLabel" aria-hidden="true">
+            <g:render template="../hike/info"/>
+        </div>
     </div>
 
 
