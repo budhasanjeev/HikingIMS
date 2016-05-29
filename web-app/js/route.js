@@ -268,6 +268,7 @@ function updateRoute(){
     }
     if(eHours=='')
     {
+
         $("#estimatedHours").focus();
         document.getElementById('eTimeDiv').innerHTML ="Select Hour and Minutes";
         return false;
