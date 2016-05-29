@@ -12,7 +12,6 @@ class HikerController {
         def hikerList = Hiker.findAll()
         render(view: '_show',model: [hiker:hikerList]);
 
-        println(hikerList)
     }
 
     def save(){
@@ -49,7 +48,6 @@ class HikerController {
 
     def update(){
 
-        println(params.data)
         def hiker = Hiker.findById(params.id as long)
 
         hiker.properties = params
@@ -62,5 +60,26 @@ class HikerController {
         }
 
     }
+
+    def details(){
+        def details = Hiker.findById(params.id as long)
+
+        def hikeInformation = HikeAndHiker.findAllByHiker(details)
+
+        def additionalInfo = [:]
+        def hikeLists = []
+
+        hikeInformation.each {
+            hikeLists.add(Hike.findById(it.hike.id as long))
+        }
+
+        additionalInfo['details'] = details
+        additionalInfo['hikeInformation'] = hikeLists
+        println(hikeLists)
+        println(additionalInfo as JSON)
+        return render(additionalInfo as JSON)
+    }
+
+
 
 }

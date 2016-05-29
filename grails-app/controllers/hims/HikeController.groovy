@@ -76,4 +76,25 @@ class HikeController {
         return render(hiker as JSON)
     }
 
+
+    def addHikerHike(){
+
+        def hike = Hike.findById(params.hikeId as long)
+        def hikerList = params.list('hiker_id');
+
+        for (String id:hikerList){
+
+            def hikerAndHike = new HikeAndHiker();
+
+            def hiker = Hiker.findById(id as long)
+            hikerAndHike.hike = hike
+
+            hikerAndHike.hiker = hiker
+
+            hikerAndHike.save(flush: true)
+        }
+
+        return render([messageType:"Success"] as JSON)
+    }
+
 }
