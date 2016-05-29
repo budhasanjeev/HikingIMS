@@ -31,6 +31,8 @@
             this.deleteHikerUrl = "<g:createLink controller="hiker" action="delete"/>"
             this.editHikerUrl = "<g:createLink controller="hiker" action="edit"/>"
             this.updateHikerUrl = "<g:createLink controller="hiker" action="update"/>"
+            this.infoUrl = "<g:createLink controller="hiker" action="details"/>"
+
         }
 
         hikerUrl = new HikerUrl();
@@ -41,6 +43,7 @@
             this.editHikeUrl = "<g:createLink controller="hike" action="edit"/>"
             this.updateHikeUrl = "<g:createLink controller="hike" action="update"/>"
             this.addHikerUrl = "<g:createLink controller="hike" action="hikerList"/>"
+            this.addHikeHikerUrl = "<g:createLink controller="hike" action="addHikerHike"/>"
 
         }
 
@@ -126,6 +129,12 @@
         <div id="select-hiker" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="myModelLabel" aria-hidden="true" style="margin-top: 100px">
             <g:render template="../hike/addHiker"/>
         </div>
+
+        <div id="hikingHistory" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="myModelLabel" aria-hidden="true" style="margin-top: 100px">
+            <g:render template="../hiker/additionalInfo"/>
+        </div>
+
+
     </div>
 
 
