@@ -16,12 +16,24 @@
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Example : Sanjeev">
                     </div>
+                    <div class="col-sm-4">
+
+                    </div>
+                    <div class="col-sm-8" id="fNameDiv" style="color: #FF0000">
+
+                    </div>
                 </div>
 
                 <div class="form-group">
                     <label for="middleName" class="col-sm-4 control-label" >Middle Name</label>
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="middleName" name="middleName" placeholder="Example : ">
+                    </div>
+                    <div class="col-sm-4">
+
+                    </div>
+                    <div class="col-sm-8" id="mNameDiv" style="color: #FF0000">
+
                     </div>
                 </div>
 
@@ -30,12 +42,24 @@
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Example : Budha">
                     </div>
+                    <div class="col-sm-4">
+
+                    </div>
+                    <div class="col-sm-8" id="lNameDiv" style="color: #FF0000">
+
+                    </div>
                 </div>
 
                 <div class="form-group">
                     <label for="mobileNumber" class="col-sm-4 control-label" >Mobile Number</label>
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="mobileNumber" name="mobileNumber" placeholder="Example : 9843723195">
+                    </div>
+                    <div class="col-sm-4">
+
+                    </div>
+                    <div class="col-sm-8" id="mNumberDiv" style="color: #FF0000">
+
                     </div>
                 </div>
 
@@ -44,6 +68,12 @@
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Example : 083-690162">
                     </div>
+                    <div class="col-sm-4">
+
+                    </div>
+                    <div class="col-sm-8" id="pNumberDiv" style="color: #FF0000">
+
+                    </div>
                 </div>
 
                 <div class="form-group">
@@ -51,19 +81,31 @@
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="emailAddress" name="emailAddress" placeholder="Example : sanjeevbudha@gmail.com">
                     </div>
+                    <div class="col-sm-4">
+
+                    </div>
+                    <div class="col-sm-8" id="eAddressDiv" style="color: #FF0000">
+
+                    </div>
                 </div>
 
                 <div class="form-group">
                     <label for="batch" class="col-sm-4 control-label" >Batch</label>
                     <div class="col-sm-8">
                         <select class="form-control" id="batch" name="batch">
-                           <option>---Select Batch---</option>
+                           <option value="">---Select Batch---</option>
                             <option value="2015">2015</option>
                             <option value="2016">2016</option>
                             <option value="2017">2017</option>
                             <option value="2018">2018</option>
                             <option value="2019">2019</option>
                         </select>
+                    </div>
+                    <div class="col-sm-4">
+
+                    </div>
+                    <div class="col-sm-8" id="batchDiv" style="color: #FF0000">
+
                     </div>
                 </div>
 
@@ -72,12 +114,24 @@
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="rollNumber" name="rollNumber" placeholder="Example : 220">
                     </div>
+                    <div class="col-sm-4">
+
+                    </div>
+                    <div class="col-sm-8" id="rNumberDiv" style="color: #FF0000">
+
+                    </div>
                 </div>
 
                 <div class="form-group">
                     <label for="address" class="col-sm-4 control-label" >Address</label>
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="address" name="address" placeholder="Example : Sifal, Kathmandu">
+                    </div>
+                    <div class="col-sm-4">
+
+                    </div>
+                    <div class="col-sm-8" id="addressDiv" style="color: #FF0000">
+
                     </div>
                 </div>
 
@@ -89,6 +143,12 @@
                             <option value="Vegetarian">Vegetarian</option>
                             <option value="Non-Vegetarian">Non-Vegetarian</option>
                         </select>
+                    </div>
+                    <div class="col-sm-4">
+
+                    </div>
+                    <div class="col-sm-8" id="foodDiv" style="color: #FF0000">
+
                     </div>
                 </div>
 
