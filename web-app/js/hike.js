@@ -495,3 +495,30 @@ function toggle(source) {
         checkboxes[i].checked = source.checked;
     }
 }
+
+function info(id){
+
+    $.ajax({
+        type:"POST",
+        url:hikeUrl.infoHikeUrl,
+        data:{id:id},
+        success: function (data) {
+            var table = "<table class='table table-bordered' id='hikeHis'><thead><tr></th><th>Name</th><th>Batch</th></tr></thead>";
+            var tableRow = "";
+
+            for(var i = 0; i < data.length;i++){
+                tableRow += "<tr><td>"+data[i].firstName+"</td><td>" + data[i].rollNumber+"</td></tr>";
+
+            }
+            table = table+tableRow+"</table>"
+
+            $("#hikerList").html(table);
+
+            $("#hikeHistory").modal('show');
+            $("#hikeHistory .modal-title").html("Hiker's List");
+        },
+        error:function(err){
+            console.log("Error"+err);
+        }
+    });
+}
