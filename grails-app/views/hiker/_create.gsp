@@ -1,6 +1,6 @@
 
 
-<div class="modal-dialog">
+<div class="modal-dialog" style="width: 70%">
 
     <div class="modal-content">
 
@@ -9,9 +9,10 @@
             <h4 class="modal-title">New Hiker</h4>
         </div>
         <div class="modal-body">
-            <g:form role="form" name="createHikerForm" class="form-horizontal" id="createHikerForm">
+            <g:form role="form" name="createHikerForm" id="createHikerForm">
                 <input type="hidden" name="id" id="hiker_id">
-                <div class="form-group">
+
+                <div class="form-group col-sm-6">
                     <label for="firstName" class="col-sm-4 control-label" >First Name</label>
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Example : Sanjeev">
@@ -24,7 +25,7 @@
                     </div>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group col-sm-6">
                     <label for="middleName" class="col-sm-4 control-label" >Middle Name</label>
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="middleName" name="middleName" placeholder="Example : ">
@@ -37,7 +38,7 @@
                     </div>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group col-sm-6">
                     <label for="lastName" class="col-sm-4 control-label" >Last Name</label>
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Example : Budha">
@@ -50,7 +51,7 @@
                     </div>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group col-sm-6">
                     <label for="mobileNumber" class="col-sm-4 control-label" >Mobile Number</label>
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="mobileNumber" name="mobileNumber" placeholder="Example : 9843723195">
@@ -63,10 +64,10 @@
                     </div>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group col-sm-6">
                     <label for="phoneNumber" class="col-sm-4 control-label" >Phone Number</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Example : 083-690162">
+                        <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Example : 083-690162"/>
                     </div>
                     <div class="col-sm-4">
 
@@ -76,10 +77,10 @@
                     </div>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group col-sm-6">
                     <label for="emailAddress" class="col-sm-4 control-label" >Email Address</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="emailAddress" name="emailAddress" placeholder="Example : sanjeevbudha@gmail.com">
+                        <input type="text" class="form-control" id="emailAddress" name="emailAddress" placeholder="Example : sanjeevbudha@gmail.com"/>
                     </div>
                     <div class="col-sm-4">
 
@@ -89,7 +90,7 @@
                     </div>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group col-sm-6">
                     <label for="batch" class="col-sm-4 control-label" >Batch</label>
                     <div class="col-sm-8">
                         <select class="form-control" id="batch" name="batch">
@@ -109,10 +110,10 @@
                     </div>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group col-sm-6">
                     <label for="rollNumber" class="col-sm-4 control-label" >Roll Number</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="rollNumber" name="rollNumber" placeholder="Example : 220">
+                        <input type="text" class="form-control" id="rollNumber" name="rollNumber" placeholder="Example : 220"/>
                     </div>
                     <div class="col-sm-4">
 
@@ -122,10 +123,10 @@
                     </div>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group col-sm-6">
                     <label for="address" class="col-sm-4 control-label" >Address</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="address" name="address" placeholder="Example : Sifal, Kathmandu">
+                        <input type="text" class="form-control" id="address" name="address" placeholder="Example : Sifal, Kathmandu"/>
                     </div>
                     <div class="col-sm-4">
 
@@ -136,10 +137,10 @@
                 </div>
 
 
-                <div class="form-group">
+                <div class="form-group col-sm-6">
                     <label for="foodPreference" class="col-sm-4 control-label" >Food Preference</label>
                     <div class="col-sm-8">
-                        <select class="form-control" id="foodPreference" name="foodPreferences">
+                        <select class="form-control" id="foodPreference" name="foodPreferences"/>
                             <option value="Vegetarian">Vegetarian</option>
                             <option value="Non-Vegetarian">Non-Vegetarian</option>
                         </select>
@@ -154,6 +155,7 @@
 
             </g:form>
         </div>
+
         <div class="modal-footer">
             <button class="btn btn-primary" type="submit" id="saveHiker" onclick="return createHiker();">Save</button>
             <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
