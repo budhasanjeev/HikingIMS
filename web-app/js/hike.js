@@ -317,7 +317,7 @@ function editHike(id){
             $('#finishMins').val(fmins);
             $('#finishAmPM').val(famPM);
 
-
+            check();
             $('#saveHike').attr("onclick","return updateHike();");
             $('#hike_id').attr("value",data.id)
 
@@ -418,7 +418,7 @@ function updateHike(){
         return false;
     }
     var data = $("#createHikeForm").serialize();
-    
+    check();
     $.ajax({
         type:"POST",
         url:hikeUrl.updateHikeUrl,
