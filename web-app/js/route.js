@@ -298,3 +298,7 @@ function updateRoute(){
     return false;
 }
 
+function infoRoute(id){
+
+    alert("Future release feature.\nMap integration will be done to display route information.\nThis feature will be extended by Mr. Suman Maharjan(2017)")
+}
