@@ -18,6 +18,9 @@ class BootStrap {
 
         UserRole.create(editor, editorRole)
 
+        //Creating folder to store Bills
+        new File("Bills").mkdir()
+
     }
     def destroy = {
     }
