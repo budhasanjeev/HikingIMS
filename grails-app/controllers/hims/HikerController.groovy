@@ -75,11 +75,8 @@ class HikerController {
 
         additionalInfo['details'] = details
         additionalInfo['hikeInformation'] = hikeLists
-        println(hikeLists)
-        println(additionalInfo as JSON)
+
         return render(additionalInfo as JSON)
     }
-
-
 
 }
