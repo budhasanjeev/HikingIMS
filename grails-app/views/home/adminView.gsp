@@ -64,9 +64,19 @@
             this.deleteExpenseUrl = "<g:createLink controller="expense" action="delete"/>"
             this.editExpenseUrl = "<g:createLink controller="expense" action="edit"/>"
             this.updateExpenseUrl = "<g:createLink controller="expense" action="update"/>"
+            this.billExpenseUrl = "<g:createLink controller="expense" action="generateBill"/>"
         }
 
         expenseUrl = new ExpenseUrl();
+
+        $(document).ready(function() {
+            if()
+            $('#hiker_table').show();
+            $('#hike_table').hide();
+            $('#route_table').hide();
+            $('#expense_table').hide();
+            $('#hiker-tab').attr("class", "active");
+        })
 
     </script>
 
