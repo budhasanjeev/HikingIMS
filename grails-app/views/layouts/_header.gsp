@@ -9,7 +9,7 @@
         </g:link>
 
         <g:if test="${sec.loggedInUserInfo(field: 'username')}">
-            <span style="margin-left: 850px;">Welcome ${sec.loggedInUserInfo(field: 'username')}
+            <span style="margin-left: 850px;">Welcome ${sec.loggedInUserInfo(field: 'username').capitalize()}
             <g:link controller="logout" action="index">
                 <button class="btn btn-danger">
                         Logout
