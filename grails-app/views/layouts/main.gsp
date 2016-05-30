@@ -18,7 +18,6 @@
     <body>
         <g:render template="/layouts/header"/>
         <g:layoutBody/>
-
         <g:render template="/layouts/footer"/>
     </body>
 	</body>
