@@ -30,7 +30,7 @@
                 <td>
                     <button class="btn btn-success" onclick="editExpense(${e.id})"><i class=" glyphicon glyphicon-edit"></i></button>
                     <button class="btn btn-danger" onclick="deleteExpense(${e.id})"><i class="glyphicon glyphicon-minus-sign"></i></button>
-                    <button class="btn btn-info"><i class="glyphicon glyphicon-info-sign"></i></button>
+                    <button class="btn btn-info" onclick="generateBill(${e.id})"><i class="glyphicon glyphicon-download"></i></button>
                 </td>
             </tr>
         </g:each>
