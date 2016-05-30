@@ -408,3 +408,16 @@ function updateExpense(){
     return false;
 }
 
+function generateBill(id){
+
+    $.ajax({
+        type:"POST",
+        url:expenseUrl.billExpenseUrl,
+        data:{id:id},
+        success:function(data){
+            if(data.messageType=="success"){
+                alert("Successfully downloaded")
+            }
+        }
+    })
+}
