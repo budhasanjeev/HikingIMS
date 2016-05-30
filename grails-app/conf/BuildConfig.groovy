@@ -40,6 +40,7 @@ grails.project.dependency.resolution = {
         mavenLocal()
         grailsCentral()
         mavenCentral()
+        mavenRepo 'http://nexus.fdvs.com.ar/content/groups/public/'
         // uncomment these (or add new ones) to enable remote dependency resolution from public Maven repositories
         //mavenRepo "http://repository.codehaus.org"
         //mavenRepo "http://download.java.net/maven/2/"
@@ -51,6 +52,11 @@ grails.project.dependency.resolution = {
         runtime 'mysql:mysql-connector-java:5.1.29'
         // runtime 'org.postgresql:postgresql:9.3-1101-jdbc41'
         test "org.grails:grails-datastore-test-support:1.0.2-grails-2.4"
+        compile 'net.sourceforge.dynamicreports:dynamicreports-core:4.0.1'
+        build "com.lowagie:itext:2.1.7"
+        compile ('ar.com.fdvs:DynamicJasper:5.0.0')
+        // compile 'net.sf.jasperreports:jasperreports:6.1.0'
+        runtime 'net.sourceforge.jexcelapi:jxl:2.6.12'
     }
 
     plugins {
