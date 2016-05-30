@@ -1,10 +1,13 @@
 package hims
 
+import hims.CommonService
 import grails.converters.JSON
 import grails.plugin.springsecurity.annotation.Secured
 
 @Secured('ROLE_ADMIN')
 class ExpenseController {
+
+    def commonService
 
     @Secured('permitAll')
     def index() {
@@ -60,6 +63,18 @@ class ExpenseController {
         }
         else {
             return render([messageType:"Error"] as JSON)
+        }
+
+    }
+
+    def generateBill(){
+
+        if(commonService.generateBill(params)){
+
+            return render([messageType:"success"] as JSON)
+        }
+        else {
+            return render([messageType:"error"] as JSON)
         }
 
     }
