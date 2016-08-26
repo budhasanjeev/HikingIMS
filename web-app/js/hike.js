@@ -162,12 +162,6 @@ function createHike(){
         document.getElementById('titleDiv').innerHTML = "Title is empty!!!!";
         return false;
     }
-    if(!title.match(letters))
-    {
-        $("#title").focus();
-        document.getElementById('titleDiv').innerHTML = "Title is numeric!!!!";
-        return false;
-    }
     if(!hMonth) {
         $("#hikingMonth").focus();
         document.getElementById('hikingDateDiv').innerHTML = "Date point is empty!!!!";

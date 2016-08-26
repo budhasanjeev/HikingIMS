@@ -13,7 +13,8 @@
                 <div class="form-group">
                     <label for="title" class="col-sm-4 control-label"  >Title</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="title" name="title" placeholder="Example : Godawari To Lele">
+                        <g:select name="title" id="title" class="form-control" from="${hims.Route.list()}" noSelection="['':' --Select Route-- ']" />
+                        %{--<input type="text" class="form-control" id="title" name="title" placeholder="Example : Godawari To Lele" >--}%
                     </div>
                     <div class="col-sm-4">
 

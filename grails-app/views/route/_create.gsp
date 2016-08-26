@@ -39,7 +39,7 @@
                 <div class="form-group">
                     <label for="difficultyLevel" class="col-sm-4 control-label" >Difficulty Level</label>
                     <div class="col-sm-8">
-                        <g:select name="difficultyLevel" id="difficultyLevel" from="${1..5}" class="form-control" noSelection="['':'----Select Difficulty Level----']"/>
+                        <g:select name="difficultyLevel" id="difficultyLevel" from="['Normal','Hard','Extreme']" class="form-control" noSelection="['':'----Select Difficulty Level----']"/>
                     </div>
                     <div class="col-sm-4">
 

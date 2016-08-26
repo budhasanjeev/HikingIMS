@@ -11,4 +11,9 @@ class Route {
     static constraints = {
 
     }
+    @Override
+    public String toString()
+    {
+        return startPoint + " - " + finishPoint;
+    }
 }

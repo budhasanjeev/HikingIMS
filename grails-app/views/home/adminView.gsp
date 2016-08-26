@@ -70,7 +70,7 @@
         expenseUrl = new ExpenseUrl();
 
         $(document).ready(function() {
-            if()
+
             $('#hiker_table').show();
             $('#hike_table').hide();
             $('#route_table').hide();
