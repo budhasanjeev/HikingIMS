@@ -84,7 +84,7 @@
 
         </div>
         <div class="col-md-5 ">
-            template
+        <g:render template="/home/about"/>
         </div>
 </div>
 
