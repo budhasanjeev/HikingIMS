@@ -90,38 +90,6 @@
                     </div>
                 </div>
 
-                <div class="form-group col-sm-6">
-                    <label for="batch" class="col-sm-4 control-label" >Batch</label>
-                    <div class="col-sm-8">
-                        <select class="form-control" id="batch" name="batch">
-                           <option value="">---Select Batch---</option>
-                            <option value="2015">2015</option>
-                            <option value="2016">2016</option>
-                            <option value="2017">2017</option>
-                            <option value="2018">2018</option>
-                            <option value="2019">2019</option>
-                        </select>
-                    </div>
-                    <div class="col-sm-4">
-
-                    </div>
-                    <div class="col-sm-8" id="batchDiv" style="color: #FF0000">
-
-                    </div>
-                </div>
-
-                <div class="form-group col-sm-6">
-                    <label for="rollNumber" class="col-sm-4 control-label" >Roll Number</label>
-                    <div class="col-sm-8">
-                        <input type="text" class="form-control" id="rollNumber" name="rollNumber" placeholder="Example : 220"/>
-                    </div>
-                    <div class="col-sm-4">
-
-                    </div>
-                    <div class="col-sm-8" id="rNumberDiv" style="color: #FF0000">
-
-                    </div>
-                </div>
 
                 <div class="form-group col-sm-6">
                     <label for="address" class="col-sm-4 control-label" >Address</label>
@@ -152,12 +120,85 @@
 
                     </div>
                 </div>
+                User<hr>
+                <div class="form-group col-sm-6">
+                    <label for="address" class="col-sm-4 control-label" >Username</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="username" name="username" placeholder=""/>
+                    </div>
+                    <div class="col-sm-4">
+
+                    </div>
+                    <div class="col-sm-8" id="usernameDiv" style="color: #FF0000">
+
+                    </div>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="address" class="col-sm-4 control-label" >Password</label>
+                    <div class="col-sm-8">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Example : Sifal, Kathmandu"/>
+                    </div>
+                    <div class="col-sm-4">
+
+                    </div>
+                    <div class="col-sm-8" id="passwordDiv" style="color: #FF0000">
+
+                    </div>
+                </div>
+                <br>Role<hr>
+                <div class="form-group col-sm-6">
+                    <label for="address" class="col-sm-4 control-label" >Role</label>
+                    <div class="col-sm-8">
+                        <g:select from="${hims.Role.list()}" name="role" id="role" optionKey="id" optionValue="authority" onchange="changeExtraForStudent(this.value);"/>
+                    </div>
+                    <div class="col-sm-4">
+
+                    </div>
+                    <div class="col-sm-8" id="roleDiv" style="color: #FF0000">
+
+                    </div>
+                </div>
+                <div id="extraForStudent">
+                    <div class="form-group col-sm-6">
+                        <label for="batch" class="col-sm-4 control-label" >Batch</label>
+                        <div class="col-sm-8">
+                            <select class="form-control" id="batch" name="batch">
+                                <option value="">---Select Batch---</option>
+                                <option value="2015">2015</option>
+                                <option value="2016">2016</option>
+                                <option value="2017">2017</option>
+                                <option value="2018">2018</option>
+                                <option value="2019">2019</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-4">
+
+                        </div>
+                        <div class="col-sm-8" id="batchDiv" style="color: #FF0000">
+
+                        </div>
+                    </div>
+
+                    <div class="form-group col-sm-6">
+                        <label for="rollNumber" class="col-sm-4 control-label" >Roll Number</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="rollNumber" name="rollNumber" placeholder="Example : 220"/>
+                        </div>
+                        <div class="col-sm-4">
+
+                        </div>
+                        <div class="col-sm-8" id="rNumberDiv" style="color: #FF0000">
+
+                        </div>
+                    </div>
+
+                </div>                                                                  bu
 
             </g:form>
         </div>
 
         <div class="modal-footer">
-            <button class="btn btn-primary" type="submit" id="saveHiker" onclick="return createHiker();">Save</button>
+            <button class="btn btn-primary" type="submit" id="saveHiker" onclick="return createHiker();" style="position: relative; top:110px;">Save</button>
             <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
         </div>
 
