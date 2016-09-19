@@ -13,24 +13,81 @@
     <link rel="stylesheet" type="text/css" href="${resource(dir: 'css', file: 'bootstrap.min.css')}">
     <script type="text/javascript" src="${resource(dir: 'js',file: 'jquery-1.12.0.min.js')}"></script>
     <script src="${resource(dir: 'js',file: 'bootstrap.min.js')}" type="text/javascript"></script>
+    <style>
+    #main{
+        width: 1200px;
+        margin: 10% auto;
+    }
+    li{
+        background-color: rgba(205, 196, 191, 0.21)
+    }
+    </style>
 </head>
 
 <body>
-    <div id="main">
-        <table>
-            <tr>
-                <td>Name</td>
-                <td>Sushant Gurung</td>
-            </tr>
-            <tr>
-                <td>Batch</td>
-                <td>2016</td>
-            </tr>
-            <tr>
+<div id="main">
+    <div class="container">
 
-            </tr>
-        </table>
-    </div>
+        <div class="col-md-5 ">
 
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Student Information</th>
+                        <th></th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Anna</td>
+
+
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Anna</td>
+
+
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>HIke you have attended</th>
+                        <th></th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>1</td>
+
+
+                    </tr>
+                    <tr>
+                        <td>1</td>
+
+
+
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-md-1 ">
+
+        </div>
+        <div class="col-md-5 ">
+            template
+        </div>
+</div>
+
+</div>
 </body>
 </html>
