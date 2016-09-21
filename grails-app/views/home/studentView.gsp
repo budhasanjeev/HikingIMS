@@ -12,6 +12,7 @@
     <meta content="main" name="layout">
     <link rel="stylesheet" type="text/css" href="${resource(dir: 'css', file: 'bootstrap.min.css')}">
     <script type="text/javascript" src="${resource(dir: 'js',file: 'jquery-1.12.0.min.js')}"></script>
+    <script src="${resource(dir: 'js',file: 'student.js')}" type="text/javascript"></script>
     <script src="${resource(dir: 'js',file: 'bootstrap.min.js')}" type="text/javascript"></script>
     <style>
     #main{
@@ -26,6 +27,30 @@
         background:olive;
     }
     </style>
+    <script>
+        function sendName(){
+            alert("dsaklfjsdklfj")
+            var userId = $('#hikerId').val();
+            var data = {
+                hikerId:userId
+            }
+            $.ajax({
+                url:"${createLink(controller: 'home', action: 'sendName')}",
+                type:"POST",
+                data:data,
+                success: function(resp){
+                    console.log(resp)
+                    if(resp.messageType=="Successful"){
+                        document.getElementById('two').style.backgroundColor='darkblue';
+                        document.getElementById('two').disabled = true
+                        $('#msg').html("You have submitted your name for hike!!!");
+                    }
+                } ,error: function (er) {
+                    alert("Error")
+                }
+            })
+        }
+    </script>
 </head>
 
 <body>
@@ -33,7 +58,7 @@
     <div class="container">
 
         <div class="col-md-5 ">
-
+            <g:hiddenField name="hikerId" id="hikerId" value="${hikerInfo?.id}"/>
             <div class="table-responsive">
                 <table class="table">
                     <thead>

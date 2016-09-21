@@ -1,5 +1,6 @@
 package hims
 
+import grails.converters.JSON
 import grails.plugin.springsecurity.SpringSecurityUtils
 import grails.plugin.springsecurity.annotation.Secured
 
@@ -56,5 +57,13 @@ class HomeController {
         def hike = Hike.findByDeadLine(false)
         model:[hikerInfo: hiker,totalCount: hikeListCount, hikeList: hikeList,hike:hike]
 
+    }
+    @Secured('permitAll')
+    def sendName(){
+        def hiker = Hiker.get(params.hikerId as long)
+        println hiker
+        hiker.isInHiker = true;
+        hiker.save()
+        return render ([messageType:"Successful"] as JSON)
     }
 }

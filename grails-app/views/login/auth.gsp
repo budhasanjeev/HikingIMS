@@ -84,6 +84,9 @@
 </head>
 
 <body style="background-image: url('../images/hikeBackground.jpg');background-repeat: no-repeat;background-size: cover">
+<g:if test='${hims.Hike.findByDeadLine(false)}'>
+	<div class='login_message'>${hims.Hike.findByDeadLine(false)}</div>
+</g:if>
 <div id='login'>
 	<div class='inner'>
 		<div class='fheader'><g:message code="springSecurity.login.header"/></div>

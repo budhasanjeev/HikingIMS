@@ -30,7 +30,16 @@
             </tr>
         </table>
 
-        <button type="submit" class="btn btn-warning" id="two">Button2</button>
+        <g:if test="${hikerInfo?.isInHiker}">
+            <input type="button" class="btn btn-warning" id="two" onclick="sendName();" value="Button" style="background-color:darkblue" disabled="true">
+        </g:if>
+        <g:else>
+            <input type="button" class="btn btn-warning" id="two" onclick="sendName();" value="Button">
+        </g:else>
+        <br>
+        <div id="msg">
+
+        </div>
     </g:if>
     <g:else>
         No Hike
