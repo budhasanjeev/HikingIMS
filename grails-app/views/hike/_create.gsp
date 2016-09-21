@@ -1,3 +1,13 @@
+<script>
+    $( function() {
+        $( "#dates" ).datepicker({
+            dateFormat: "dd-mm-yy"
+        });
+    } );
+</script>
+
+
+
 <div class="modal-dialog">
 
     <div class="modal-content">
@@ -27,17 +37,17 @@
                 <div class="form-group">
                     <label class="col-sm-4 control-label">Hiking Date</label>
                     <div class="col-sm-8">
-
+                        <input type="text" name="dates" id="dates">
                         <div class="col-sm-4">
-                            <g:select name="hikingMonth" id="hikingMonth" from="${["January","February","March","April","May","June","July","August","September","October","November","December"]}" class="form-control" noSelection="['':'--Months--']"/>
+                            %{--<g:select name="hikingMonth" id="hikingMonth" from="${["January","February","March","April","May","June","July","August","September","October","November","December"]}" class="form-control" noSelection="['':'--Months--']"/>--}%
                         </div>
 
                         <div class="col-sm-4">
-                            <g:select name="hikingDay" from="${1..30}" id="hikingDay" noSelection="['':'--Day--']" class="form-control"/>
+                            %{--<g:select name="hikingDay" from="${1..30}" id="hikingDay" noSelection="['':'--Day--']" class="form-control"/>--}%
                         </div>
                         
                         <div class="col-sm-4">
-                            <g:select name="hikingYear" id="hikingYear" from="${2012..2020}" noSelection="['':'--Year--']" class="form-control"/>
+                            %{--<g:select name="hikingYear" id="hikingYear" from="${2012..2020}" noSelection="['':'--Year--']" class="form-control"/>--}%
                         </div>
                         <div class="col-sm-4">
 

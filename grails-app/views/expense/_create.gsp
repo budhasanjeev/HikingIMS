@@ -17,6 +17,7 @@
                                   from="${Hike.list()}"
                                   optionValue="title"
                                   optionKey="id"
+                                  noSelection="['':' -- Select from below-- ']"
                         />
                     </div>
                     <div class="col-sm-8" id="hikeDiv">

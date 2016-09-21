@@ -51,6 +51,7 @@ grails.project.dependency.resolution = {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes e.g.
         runtime 'mysql:mysql-connector-java:5.1.29'
         // runtime 'org.postgresql:postgresql:9.3-1101-jdbc41'
+
         test "org.grails:grails-datastore-test-support:1.0.2-grails-2.4"
         compile 'net.sourceforge.dynamicreports:dynamicreports-core:4.0.1'
         build "com.lowagie:itext:2.1.7"
@@ -69,10 +70,18 @@ grails.project.dependency.resolution = {
         compile ":asset-pipeline:1.9.9"
         compile "org.grails.plugins:spring-security-core:2.0.0"
 
+
+
+        compile "org.grails.plugins:rendering:1.0.0"
+        compile ":jquery-ui:1.8.24"
+        compile "org.grails.plugins:quartz:1.0.2"
+
         // plugins needed at runtime but not for compilation
         runtime ":hibernate4:4.3.6.1" // or ":hibernate:3.6.10.18"
         runtime ":database-migration:1.4.0"
         runtime ":jquery:1.11.1"
+
+
 
         // Uncomment these to enable additional asset-pipeline capabilities
         //compile ":sass-asset-pipeline:1.9.0"

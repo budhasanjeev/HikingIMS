@@ -62,11 +62,11 @@ class LoginController {
 			redirect uri: config.successHandler.defaultTargetUrl
 			return
 		}
-
+		def hike = Hike.findByDeadLine(false);
 		String view = 'auth'
 		String postUrl = "${request.contextPath}${config.apf.filterProcessesUrl}"
         session.postUrl=postUrl;
-		render view: view, model: [postUrl: postUrl,
+		render view: view, model: [postUrl: postUrl,hike: hike,
 		                           rememberMeParameter: config.rememberMe.parameter]
 	}
 

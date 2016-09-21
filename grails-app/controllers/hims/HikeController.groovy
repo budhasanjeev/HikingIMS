@@ -1,7 +1,8 @@
 package hims
-
 import grails.converters.JSON
 import grails.plugin.springsecurity.annotation.Secured
+
+import java.text.SimpleDateFormat
 
 @Secured('ROLE_ADMIN')
 class HikeController {
@@ -15,12 +16,14 @@ class HikeController {
     }
 
     def save(){
-
-        params.hikingDate = params.hikingMonth+"-"+params.hikingDay+"-"+params.hikingYear
+        def dateFormat = new SimpleDateFormat("dd-MM-yyyy")
+        def hikingDate = dateFormat.parse(params.dates)
+        params.hikingDate = hikingDate
         params.startTime  = params.startHours+":"+params.startMins+" "+params.startAmPM
-        params.finishTime  = params.finishHours+":"+params.finishMins+" "+params.finishAmPM
+        params.finishTime  = params.finishHours+":"+params  .finishMins+" "+params.finishAmPM
 
         def hike = new Hike(params);
+        hike.deadLine = false;
 
         if (hike.save(flush: true, failOnError: true)){
             return render ([messageType:"Success"] as JSON)
@@ -71,9 +74,20 @@ class HikeController {
     }
 
     def hikerList(){
-        def hiker = Hiker.all;
+        def currentHike = Hike.get(params.hikeId as long)
+        def hikers = Hiker.findAllByIsInHiker(true);
+        println hikers.size()
+        hikers.each{ hiker ->
+            def lastHikeId = HikeAndHiker.findAllByHiker(hiker)
+            def lastGoneHike = null
+            if(lastHikeId){
+                def lastHike = Hike.findById(lastHikeId.last()?.id)
+                lastGoneHike = Hike.findAllByHikingDateGreaterThan(currentHike?.hikingDate)
+                println lastGoneHike.size()
+            }
+        }
 
-        return render(hiker as JSON)
+        return render(hikers as JSON)
     }
 
 
@@ -87,6 +101,8 @@ class HikeController {
             def hikerAndHike = new HikeAndHiker();
 
             def hiker = Hiker.findById(id as long)
+            hiker.isInHiker = true
+            hiker.save()
             hikerAndHike.hike = hike
 
             hikerAndHike.hiker = hiker
@@ -99,12 +115,13 @@ class HikeController {
 
     def infoHike(){
         def hike = Hike.findById(params.id as long)
-        def hikerList = HikeAndHiker.findAllByHike(hike)
-        def selectedHikerList = []
-
-        hikerList.each {
-            selectedHikerList.add(Hiker.findById(it.hiker.id))
-        }
+//        def hikerList = HikeAndHiker.findAllByHike(hike)
+//        def selectedHikerList = []
+//
+//        hikerList.each {
+//            selectedHikerList.add(Hiker.findById(it.hiker.id))
+//        }
+        def selectedHikerList = Hiker.findAllByIsInHiker(true)
 
         return render(selectedHikerList as JSON)
     }

@@ -13,6 +13,9 @@
 
     %{--Stylesheets--}%
     <link rel="stylesheet" type="text/css" href="${resource(dir: 'css', file: 'bootstrap.min.css')}">
+    %{--<link rel="stylesheet" type="text/css" href="${resource(dir: 'css', file: 'jquery-ui.min.css')}">--}%
+    %{--<link rel="stylesheet" type="text/css" href="${resource(dir: 'css', file: 'jquery-ui.structure.min.css')}">--}%
+    <link rel="stylesheet" type="text/css" href="${resource(dir: 'css', file: 'jquery-ui.css')}">
     <link rel="stylesheet" type="text/css" href="${resource(dir: 'media/css', file: 'jquery.dataTables.css')}">
 
     %{--javascript files--}%
@@ -23,6 +26,8 @@
     <script src="${resource(dir: 'js',file: 'route.js')}" type="text/javascript"></script>
     <script src="${resource(dir: 'js',file: 'expense.js')}" type="text/javascript"></script>
     <script src="${resource(dir: 'js',file: 'admin.js')}" type="text/javascript"></script>
+    <script src="${resource(dir: 'js',file: 'admin.js')}" type="text/javascript"></script>
+    <script src="${resource(dir: 'js',file: 'jquery-ui.js')}" type="text/javascript"></script>
     <script src="${resource(dir: 'media/js',file: 'jquery.dataTables.min.js')}" type="text/javascript"></script>
 
     <script type="text/javascript">
@@ -76,7 +81,16 @@
             $('#route_table').hide();
             $('#expense_table').hide();
             $('#hiker-tab').attr("class", "active");
+            $('#extraForStudent').hide();
         })
+        function changeExtraForStudent(mineValue){
+            if(mineValue == 3){
+                $("#extraForStudent").show();
+            }
+            else{
+                $("#extraForStudent").hide();
+            }
+        }
 
     </script>
 

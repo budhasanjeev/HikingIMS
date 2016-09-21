@@ -4,10 +4,11 @@ package hims
 class Hike {
 
     String title
-    String hikingDate
+    Date hikingDate
     String hikingType
     String startTime
     String finishTime
+    boolean deadLine = false
 
     @Override
     public String toString()

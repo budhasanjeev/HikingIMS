@@ -15,8 +15,19 @@ class HikerController {
     }
 
     def save(){
-
+        User user = new User();
+        user.username = params.username
+        user.password = params.password
+        user.save();
+        def role = Role.get(params.role as long)
+        UserRole userRole = new UserRole()
+        userRole.user = user
+        userRole.role = role
+        userRole.save()
         def hiker = new Hiker(params);
+        hiker.isTerminated = false
+        hiker.isInHiker = false
+        hiker.user = user
         if (hiker.save(flush: true, failOnError: true)){
             return render ([messageType:"Success"] as JSON)
         }

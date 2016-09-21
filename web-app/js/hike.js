@@ -6,6 +6,9 @@ $(document).ready(function() {
     $('#hike-table').dataTable({
         "lengthMenu": [[6,12,24,-1],[6,12,24,"ALL"]]
     });
+
+    $('')
+
     $("#title").on("click",function(){
         document.getElementById('titleDiv').innerHTML = "";
     })
@@ -162,21 +165,7 @@ function createHike(){
         document.getElementById('titleDiv').innerHTML = "Title is empty!!!!";
         return false;
     }
-    if(!hMonth) {
-        $("#hikingMonth").focus();
-        document.getElementById('hikingDateDiv').innerHTML = "Date point is empty!!!!";
-        return false;
-    }
-    if(!hDay){
-        $("#hikingDay").focus();
-        document.getElementById('hikingDateDiv').innerHTML = "Date point is empty!!!!";
-        return false;
-    }
-    if(!hYear){
-        $("#hikingYear").focus();
-        document.getElementById('hikingDateDiv').innerHTML = "Date point is empty!!!!";
-        return false;
-    }
+
 
 
 
@@ -432,9 +421,12 @@ function updateHike(){
 }
 
 function addHiker(id){
-
+    var data = {
+        hikeId:id
+    }
     $.ajax({
         type:"GET",
+        data: data,
         url:hikeUrl.addHikerUrl,
         success:function(data){
             var table = "<table class='table table-bordered' id='userList'><thead><tr><th><input type='hidden' name='hikeId' value='"+id+"'/><input type='checkbox' onclick='toggle(this)'></th><th>Name</th><th>Batch</th></tr></thead>";

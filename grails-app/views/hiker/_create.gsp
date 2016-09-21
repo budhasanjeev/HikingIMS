@@ -192,7 +192,7 @@
                         </div>
                     </div>
 
-                </div>                                                                  bu
+                </div>
 
             </g:form>
         </div>

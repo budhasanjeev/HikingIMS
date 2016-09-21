@@ -145,7 +145,7 @@ function createExpense(){
     console.log("providedfund="+providedBudget+"\n");
     console.log("breakfast"+breakfast+"\n");
 
-    if(!providedBudget){
+   /* if(!providedBudget){
         $("#providedBudget").focus();
         document.getElementById('providedBudgetDiv').innerHTML = "Provided Fund is empty!!!!";
         return false;
@@ -216,7 +216,7 @@ function createExpense(){
         $("#transportation").focus();
         document.getElementById('transportationDiv').innerHTML = "Transportation is greater than provided fund";
         return false;
-    }
+    }*/
 
 
     var data = $("#createExpenseForm").serialize();

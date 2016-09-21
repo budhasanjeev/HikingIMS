@@ -23,6 +23,12 @@ class HomeController {
                 redirect(action: 'editorView')
             }
 
+            else if (SpringSecurityUtils.ifAllGranted("ROLE_STUDENT")){
+                println "------------"
+
+                redirect(action: 'studentView')
+            }
+
         }else {
 
             redirect(controller: 'login', action: 'auth')
@@ -39,5 +45,16 @@ class HomeController {
     def editorView(){
 
         render("This is Editor View")
+    }
+
+    @Secured('ROLE_STUDENT')
+    def studentView(){
+        def userId = springSecurityService.currentUser.id
+        def hiker = Hiker.findByUser(User.get(userId))
+        def hikeList = HikeAndHiker.findAllByHiker(hiker)?.hike
+        def hikeListCount = hikeList.size()
+        def hike = Hike.findByDeadLine(false)
+        model:[hikerInfo: hiker,totalCount: hikeListCount, hikeList: hikeList,hike:hike]
+
     }
 }

@@ -40,6 +40,7 @@ $(document).ready(function() {
 
 
 function changeHiker(){
+    alert("Shownn1");
     $('#insert-hiker').modal('show');
     $('#insert-hiker .modal-title').html("Add New Hiker");
     $('#insert-hiker button[type=submit]').html("Save");
@@ -111,16 +112,13 @@ function check(){
         document.getElementById('mNumberDiv').innerHTML = "Mobile number is string";
         flag =  false;
     }
-    else if(!pNumber){
-        $("#phoneNumber").focus();
-        document.getElementById('pNumberDiv').innerHTML = "phone number is empty!!!!";
-        flag = false;
-    }
-    else  if(!pNumber.match(numbers))
-    {
-        $("#phoneNumber").focus();
-        document.getElementById('pNumberDiv').innerHTML = "Phone number is string";
-        flag =  false;
+    else if(pNumber){
+        if(!pNumber.match(numbers))
+        {
+            $("#phoneNumber").focus();
+            document.getElementById('pNumberDiv').innerHTML = "Phone number is string";
+            flag =  false;
+        }
     }
     else if(pNumber.length!=10){
         $("#phoneNumber").focus();
@@ -187,131 +185,131 @@ function check(){
 
 
 function createHiker(){
-    var fName = $("#firstName").val();
-    var mName = $("#middleName").val();
-    var lName = $("#lastName").val();
-    var mNumber = $("#mobileNumber").val();
-    var pNumber = $("#phoneNumber").val();
-    var eAddress = $("#emailAddress").val();
-    var batch = $("#batch").val();
-    var rNumber = $("#rollNumber").val();
-    var address = $("#address").val();
-    var food = $("#foodPreference").val();
-
-    var letters = /^[a-zA-Z]+$/;
-    var numbers = /^[0-9]+$/;
-    var re = /\S+@\S+\.\S+/;
-    if(!fName){
-        $("#firstName").focus();
-        document.getElementById('fNameDiv').innerHTML = "First name is empty!!!!";
-        return false;
-    }
-    if(!fName.match(letters))
-    {
-        $("#firstName").focus();
-        document.getElementById('fNameDiv').innerHTML = "First name is numeric!!!!";
-        return false;
-    }
-
-    if(!lName){
-        $("#lastName").focus();
-        document.getElementById('lNameDiv').innerHTML = "Last name is empty!!!!";
-        return false;
-    }
-    if(!lName.match(letters))
-    {
-        $("#lastName").focus();
-        document.getElementById('lNameDiv').innerHTML = "last name is numeric!!!!";
-        return false;
-    }
-    if(!mNumber){
-        $("#mobileNumber").focus();
-        document.getElementById('mNumberDiv').innerHTML = "Mobile number is empty!!!!";
-        return false;
-    }
-    if(mNumber.length!=10){
-        $("#mobileNumber").focus();
-        document.getElementById('mNumberDiv').innerHTML = "Mobile number not valid!!!!";
-        return false;
-    }
-    if(!mNumber.match(numbers))
-    {
-        $("#mobileNumber").focus();
-        document.getElementById('mNumberDiv').innerHTML = "Mobile number is string";
-        return false;
-    }
-    //if(!pNumber){
-    //    $("#phoneNumber").focus();
-    //    document.getElementById('pNumberDiv').innerHTML = "phone number is empty!!!!";
+    //var fName = $("#firstName").val();
+    //var mName = $("#middleName").val();
+    //var lName = $("#lastName").val();
+    //var mNumber = $("#mobileNumber").val();
+    //var pNumber = $("#phoneNumber").val();
+    //var eAddress = $("#emailAddress").val();
+    //var batch = $("#batch").val();
+    //var rNumber = $("#rollNumber").val();
+    //var address = $("#address").val();
+    //var food = $("#foodPreference").val();
+    //
+    //var letters = /^[a-zA-Z]+$/;
+    //var numbers = /^[0-9]+$/;
+    //var re = /\S+@\S+\.\S+/;
+    //if(!fName){
+    //    $("#firstName").focus();
+    //    document.getElementById('fNameDiv').innerHTML = "First name is empty!!!!";
     //    return false;
     //}
-    //if(!pNumber.match(numbers))
+    //if(!fName.match(letters))
     //{
-    //    $("#phoneNumber").focus();
-    //    document.getElementById('pNumberDiv').innerHTML = "Phone number is string";
+    //    $("#firstName").focus();
+    //    document.getElementById('fNameDiv').innerHTML = "First name is numeric!!!!";
     //    return false;
     //}
-    //if(pNumber.length){
-    //    $("#phoneNumber").focus();
-    //    document.getElementById('pNumberDiv').innerHTML = "phone number is not valid!!!!";
+    //
+    //if(!lName){
+    //    $("#lastName").focus();
+    //    document.getElementById('lNameDiv').innerHTML = "Last name is empty!!!!";
     //    return false;
     //}
-    if(!eAddress)
-    {
-
-        $("#emailAddress").focus();
-        document.getElementById('eAddressDiv').innerHTML ="Email address is empty";
-        return false;
-    }
-    if(!eAddress.match(re))
-    {
-        $("#emailAddress").focus();
-        document.getElementById('eAddressDiv').innerHTML ="Not valid email address";
-        return false;
-    }
-    console.log(batch+"sadsdasdas")
-    if(!batch)
-    {
-        $("#batch").focus();
-        document.getElementById('batchDiv').innerHTML ="Select Batch";
-        return false;
-    }
-    if(!rNumber)
-    {
-        $("#rollNumber").focus();
-        document.getElementById('rNumberDiv').innerHTML ="Roll Number is empty";
-        return false;
-    }
-    if(!rNumber.match(numbers))
-    {
-        $("#rollNumber").focus();
-        document.getElementById('rNumberDiv').innerHTML ="Roll number must be numeric";
-        return false;
-    }
-    if(!address)
-    {
-        $("#address").focus();
-        document.getElementById('addressDiv').innerHTML ="Address is null";
-        return false;
-    }
-    if(!address.match(letters))
-    {
-        $("#address").focus();
-        document.getElementById('addressDiv').innerHTML ="Address must be string";
-        return false;
-    }
-    if(!rNumber)
-    {
-        $("#address").focus();
-        document.getElementById('addressDiv').innerHTML ="Address is null";
-        return false;
-    }
-    if(food="")
-    {
-        $("#foodPreference").focus();
-        document.getElementById('foodDiv').innerHTML ="Select food preference";
-        return false;
-    }
+    //if(!lName.match(letters))
+    //{
+    //    $("#lastName").focus();
+    //    document.getElementById('lNameDiv').innerHTML = "last name is numeric!!!!";
+    //    return false;
+    //}
+    //if(!mNumber){
+    //    $("#mobileNumber").focus();
+    //    document.getElementById('mNumberDiv').innerHTML = "Mobile number is empty!!!!";
+    //    return false;
+    //}
+    //if(mNumber.length!=10){
+    //    $("#mobileNumber").focus();
+    //    document.getElementById('mNumberDiv').innerHTML = "Mobile number not valid!!!!";
+    //    return false;
+    //}
+    //if(!mNumber.match(numbers))
+    //{
+    //    $("#mobileNumber").focus();
+    //    document.getElementById('mNumberDiv').innerHTML = "Mobile number is string";
+    //    return false;
+    //}
+    ////if(!pNumber){
+    ////    $("#phoneNumber").focus();
+    ////    document.getElementById('pNumberDiv').innerHTML = "phone number is empty!!!!";
+    ////    return false;
+    ////}
+    ////if(!pNumber.match(numbers))
+    ////{
+    ////    $("#phoneNumber").focus();
+    ////    document.getElementById('pNumberDiv').innerHTML = "Phone number is string";
+    ////    return false;
+    ////}
+    ////if(pNumber.length){
+    ////    $("#phoneNumber").focus();
+    ////    document.getElementById('pNumberDiv').innerHTML = "phone number is not valid!!!!";
+    ////    return false;
+    ////}
+    //if(!eAddress)
+    //{
+    //
+    //    $("#emailAddress").focus();
+    //    document.getElementById('eAddressDiv').innerHTML ="Email address is empty";
+    //    return false;
+    //}
+    //if(!eAddress.match(re))
+    //{
+    //    $("#emailAddress").focus();
+    //    document.getElementById('eAddressDiv').innerHTML ="Not valid email address";
+    //    return false;
+    //}
+    //console.log(batch+"sadsdasdas")
+    //if(!batch)
+    //{
+    //    $("#batch").focus();
+    //    document.getElementById('batchDiv').innerHTML ="Select Batch";
+    //    return false;
+    //}
+    //if(!rNumber)
+    //{
+    //    $("#rollNumber").focus();
+    //    document.getElementById('rNumberDiv').innerHTML ="Roll Number is empty";
+    //    return false;
+    //}
+    //if(!rNumber.match(numbers))
+    //{
+    //    $("#rollNumber").focus();
+    //    document.getElementById('rNumberDiv').innerHTML ="Roll number must be numeric";
+    //    return false;
+    //}
+    //if(!address)
+    //{
+    //    $("#address").focus();
+    //    document.getElementById('addressDiv').innerHTML ="Address is null";
+    //    return false;
+    //}
+    //if(!address.match(letters))
+    //{
+    //    $("#address").focus();
+    //    document.getElementById('addressDiv').innerHTML ="Address must be string";
+    //    return false;
+    //}
+    //if(!rNumber)
+    //{
+    //    $("#address").focus();
+    //    document.getElementById('addressDiv').innerHTML ="Address is null";
+    //    return false;
+    //}
+    //if(food="")
+    //{
+    //    $("#foodPreference").focus();
+    //    document.getElementById('foodDiv').innerHTML ="Select food preference";
+    //    return false;
+    //}
 
     var data = $("#createHikerForm").serialize();
     $.ajax({

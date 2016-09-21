@@ -9,10 +9,12 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<title><g:layoutTitle default="HIMS"/></title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		%{--<r:require module="jquery-ui"/>--}%
 		<link rel="shortcut icon" href="${assetPath(src: 'favicon.ico')}" type="image/x-icon">
   		<asset:stylesheet src="application.css"/>
 		<asset:javascript src="application.js"/>
 		<g:layoutHead/>
+
 	</head>
 	<body>
     <body>

@@ -13,10 +13,16 @@ class Hiker {
     String address
     String foodPreferences
     String batch
+    User user
+    boolean isTerminated
+    boolean isInHiker
+
 
     Date createdDate = new Date();
 
     static constraints = {
-        middleName(nullable: true)
+        middleName(nullable:true)
+        batch(nullable:true)
+        rollNumber(nullable:true)
     }
 }

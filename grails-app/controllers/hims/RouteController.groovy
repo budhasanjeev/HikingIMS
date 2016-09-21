@@ -15,8 +15,12 @@ class RouteController {
     }
 
     def save(){
+        def startTime = params.startPoint
+        def finishPoint = params.finishPoint
 
         params.estimatedTime = params.estimatedHours+":"+params.estimatedMins
+        params.startPoint = startTime.toString().toUpperCase()
+        params.finishPoint = finishPoint.toString().toUpperCase()
 
         def route = new Route(params);
 
