@@ -24,6 +24,8 @@ class RouteController {
 
         def route = new Route(params);
 
+        println route
+
         if (route.save(flush: true, failOnError: true)){
             return render ([messageType:"Success"] as JSON)
         }

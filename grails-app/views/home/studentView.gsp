@@ -29,7 +29,6 @@
     </style>
     <script>
         function sendName(){
-            alert("dsaklfjsdklfj")
             var userId = $('#hikerId').val();
             var data = {
                 hikerId:userId

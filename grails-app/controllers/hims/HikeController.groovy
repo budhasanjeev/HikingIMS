@@ -10,7 +10,8 @@ class HikeController {
     @Secured('permitAll')
     def index() {
 
-        def hikeList = Hike.findAll()
+        def hikeList = Hike.findAll().reverse()
+        println "0-----------"+hikeList
         render(view: '_show',model: [hike:hikeList]);
 
     }
@@ -23,7 +24,6 @@ class HikeController {
         params.finishTime  = params.finishHours+":"+params  .finishMins+" "+params.finishAmPM
 
         def hike = new Hike(params);
-        hike.deadLine = false;
 
         if (hike.save(flush: true, failOnError: true)){
             return render ([messageType:"Success"] as JSON)
@@ -76,7 +76,7 @@ class HikeController {
     def hikerList(){
         def currentHike = Hike.get(params.hikeId as long)
         def hikers = Hiker.findAllByIsInHiker(true);
-        println hikers.size()
+        println ">>>>>>" + hikers.size()
         hikers.each{ hiker ->
             def lastHikeId = HikeAndHiker.findAllByHiker(hiker)
             def lastGoneHike = null
@@ -121,7 +121,7 @@ class HikeController {
 //        hikerList.each {
 //            selectedHikerList.add(Hiker.findById(it.hiker.id))
 //        }
-        def selectedHikerList = Hiker.findAllByIsInHiker(true)
+        def selectedHikerList = HikeAndHiker.findAllByHike(hike)?.hiker
 
         return render(selectedHikerList as JSON)
     }

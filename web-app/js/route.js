@@ -91,57 +91,57 @@ function check(){
 }
 
 function createRoute(){
-    var sPoint = $("#startPoint").val();
-    var fPoint = $("#finishPoint").val();
-    var dLevel = $("#difficultyLevel").val();
-    var eHours = $("#estimatedHours").val();
-    var eMins = $("#estimatedMins").val();
-    var letters = /^[a-zA-Z]+$/;
-    console.log("dlevel="+dLevel+"\n");
-    console.log("eHours"+eHours+"\n");
-    console.log("eMins="+eMins+"\n");
-
-    if(!sPoint){
-            $("#startPoint").focus();
-            document.getElementById('startPointDiv').innerHTML = "Start point is empty!!!!";
-            return false;
-    }
-    if(!sPoint.match(letters))
-    {
-            $("#startPoint").focus();
-            document.getElementById('startPointDiv').innerHTML = "Start point is numeric!!!!";
-            return false;
-    }
-    if(!fPoint){
-        $("#finishPoint").focus();
-        document.getElementById('finishPointDiv').innerHTML = "finish point is empty!!!!";
-        return false;
-    }
-    if(!fPoint.match(letters))
-    {
-        $("#finishPoint").focus();
-        document.getElementById('finishPointDiv').innerHTML = "finish point is numeric!!!!";
-        return false;
-    }
-
-    if(dLevel=='')
-    {
-        $("#difficultyLevel").focus();
-        document.getElementById('difficultyLevelDiv').innerHTML = "Select difficulty level";
-        return false;
-    }
-    if(eHours=='')
-    {
-        $("#estimatedHours").focus();
-        document.getElementById('eTimeDiv').innerHTML ="Select Hour and Minutes";
-        return false;
-    }
-    if(eMins=='')
-    {
-        $("#estimatedMins").focus();
-        document.getElementById('eTimeDiv').innerHTML ="Select Hour and Minutes";
-        return false;
-    }
+    //var sPoint = $("#startPoint").val();
+    //var fPoint = $("#finishPoint").val();
+    //var dLevel = $("#difficultyLevel").val();
+    //var eHours = $("#estimatedHours").val();
+    //var eMins = $("#estimatedMins").val();
+    //var letters = /^[a-zA-Z]+$/;
+    //console.log("dlevel="+dLevel+"\n");
+    //console.log("eHours"+eHours+"\n");
+    //console.log("eMins="+eMins+"\n");
+    //
+    //if(!sPoint){
+    //        $("#startPoint").focus();
+    //        document.getElementById('startPointDiv').innerHTML = "Start point is empty!!!!";
+    //        return false;
+    //}
+    //if(!sPoint.match(letters))
+    //{
+    //        $("#startPoint").focus();
+    //        document.getElementById('startPointDiv').innerHTML = "Start point is numeric!!!!";
+    //        return false;
+    //}
+    //if(!fPoint){
+    //    $("#finishPoint").focus();
+    //    document.getElementById('finishPointDiv').innerHTML = "finish point is empty!!!!";
+    //    return false;
+    //}
+    //if(!fPoint.match(letters))
+    //{
+    //    $("#finishPoint").focus();
+    //    document.getElementById('finishPointDiv').innerHTML = "finish point is numeric!!!!";
+    //    return false;
+    //}
+    //
+    //if(dLevel=='')
+    //{
+    //    $("#difficultyLevel").focus();
+    //    document.getElementById('difficultyLevelDiv').innerHTML = "Select difficulty level";
+    //    return false;
+    //}
+    //if(eHours=='')
+    //{
+    //    $("#estimatedHours").focus();
+    //    document.getElementById('eTimeDiv').innerHTML ="Select Hour and Minutes";
+    //    return false;
+    //}
+    //if(eMins=='')
+    //{
+    //    $("#estimatedMins").focus();
+    //    document.getElementById('eTimeDiv').innerHTML ="Select Hour and Minutes";
+    //    return false;
+    //}
 
 
     var data = $("#routeForm").serialize();

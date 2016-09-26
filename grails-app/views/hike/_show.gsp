@@ -28,10 +28,18 @@
                 <td>${h.startTime}</td>
                 <td>${h.finishTime}</td>
                 <td>
-                    <button class="btn btn-success" onclick="editHike(${h.id})" title="EDIT"><i class="glyphicon glyphicon-edit"></i></button>
-                    <button class="btn btn-danger" onclick="deleteHike(${h.id})" title="DELETE"><i class="glyphicon glyphicon-minus-sign"></i></button>
-                    <button class="btn btn-primary" onclick="addHiker(${h.id});" title="HIKER"><i class="glyphicon glyphicon-user"></i></button>
-                    <button class="btn btn-info" title="INFO" onclick="info(${h.id})"><i class="glyphicon glyphicon-info-sign"></i></button>
+                    <g:if test="${h?.isOver}">
+                        <button class="btn btn-success" title="EDIT"><i class="glyphicon glyphicon-edit"></i></button>
+                        <button class="btn btn-danger"  title="DELETE"><i class="glyphicon glyphicon-minus-sign"></i></button>
+                        <button class="btn btn-primary" title="HIKER"><i class="glyphicon glyphicon-user"></i></button>
+                        <button class="btn btn-info" title="INFO"  onclick="info(${h.id})"><i class="glyphicon glyphicon-info-sign"></i></button>
+                    </g:if>
+                    <g:else>
+                        <button class="btn btn-success" onclick="editHike(${h.id})" title="EDIT"><i class="glyphicon glyphicon-edit"></i></button>
+                        <button class="btn btn-danger" onclick="deleteHike(${h.id})" title="DELETE"><i class="glyphicon glyphicon-minus-sign"></i></button>
+                        <button class="btn btn-primary" onclick="addHiker(${h.id});" title="HIKER"><i class="glyphicon glyphicon-user"></i></button>
+                        <button class="btn btn-info" title="INFO" onclick="info(${h.id})"><i class="glyphicon glyphicon-info-sign"></i></button>
+                    </g:else>
                 </td>
             </tr>
         </g:each>

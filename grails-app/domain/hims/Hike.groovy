@@ -9,6 +9,7 @@ class Hike {
     String startTime
     String finishTime
     boolean deadLine = false
+    boolean isOver = false
 
     @Override
     public String toString()

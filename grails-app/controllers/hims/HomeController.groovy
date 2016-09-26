@@ -39,7 +39,7 @@ class HomeController {
     @Secured('ROLE_ADMIN')
     def adminView(){
 
-        model: [hiker:Hiker.all,route:Route.all,hike:Hike.all,expense:Expense.all]
+        model: [hiker:Hiker.all,route:Route.all,hike:Hike.list().reverse(),expense:Expense.list().reverse()]
     }
 
     @Secured('ROLE_EDITOR')
@@ -61,9 +61,8 @@ class HomeController {
     @Secured('permitAll')
     def sendName(){
         def hiker = Hiker.get(params.hikerId as long)
-        println hiker
         hiker.isInHiker = true;
-        hiker.save()
+        hiker.save(flush: true, failOnError: true)
         return render ([messageType:"Successful"] as JSON)
     }
 }

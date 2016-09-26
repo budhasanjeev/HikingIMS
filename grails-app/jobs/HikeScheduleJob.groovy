@@ -5,10 +5,10 @@ class HikeScheduleJob {
     def hikeService
     static triggers = {
 //        cronExpression: '0 0 18 * * THURS';
-        cron name:'hikeSchedule', cronExpression: '0 0 18 ? * SATUR';
+        cron name:'hikeSchedule', cronExpression: '0 42 11 ? * MON';
     }
     def execute(){
-        println "Its in execution part!!!!!!!!!!"
+        println "Its in execution part123!!!!!!!!!!"
         hikeService.udpateHikeDeadline();
     }
 }

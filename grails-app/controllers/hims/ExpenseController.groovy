@@ -1,6 +1,4 @@
 package hims
-
-import hims.CommonService
 import grails.converters.JSON
 import grails.plugin.springsecurity.annotation.Secured
 
@@ -19,7 +17,15 @@ class ExpenseController {
 
     def save(){
 
+        def hikers = Hiker.findAllByIsInHiker(true);
+        hikers.each{
+            it?.isInHiker = false
+            it.save()
+        }
+
         def hike = Hike.findById(params.hike_id as long)
+        hike.isOver = true
+        hike.save(flush: true, failOnError: true)
         def expense = new Expense(params);
         expense.hike=hike
 
@@ -77,5 +83,12 @@ class ExpenseController {
             return render([messageType:"error"] as JSON)
         }
 
+    }
+    def downloadExpense(){
+        println "id - " + params.id
+        def expense = Expense.get(params.id as long);
+        response.setContentType("application/pdf")
+        response.setHeader("Content-Disposition", "attachment; filename=Expense.pdf")
+        renderPdf(template: '/layouts/expenseReport', model: [expense: expense])
     }
 }

@@ -14,6 +14,7 @@ class HikeService {
     }
     def udpateTwoDayHikeDeadline(){
         def hike = Hike.findByDeadLineAndHikingType(false,"Two Days");
+        println "----->>>>> " + hike
         if(hike) {
             hike.deadLine = true
             hike.save()
