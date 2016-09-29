@@ -71,8 +71,6 @@ grails.project.dependency.resolution = {
         compile "org.grails.plugins:spring-security-core:2.0.0"
 
 
-
-        compile "org.grails.plugins:rendering:1.0.0"
         compile ":jquery-ui:1.8.24"
         compile "org.grails.plugins:quartz:1.0.2"
 
