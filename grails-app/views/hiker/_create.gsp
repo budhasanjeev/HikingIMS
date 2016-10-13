@@ -1,6 +1,6 @@
 
 
-<div class="modal-dialog" style="width: 70%">
+<div class="modal-dialog" style="width: 80%">
 
     <div class="modal-content">
 
@@ -8,7 +8,7 @@
             <button type="button" class="close" data-dismiss="modal">&times;</button>
             <h4 class="modal-title">New Hiker</h4>
         </div>
-        <div class="modal-body" style="height: 260px">
+        <div class="modal-body" style="height: 500px">
             <g:form role="form" name="createHikerForm" id="createHikerForm">
                 <input type="hidden" name="id" id="hiker_id">
 
@@ -120,7 +120,7 @@
 
                     </div>
                 </div>
-                User<hr>
+                <h4>User</h4><hr>
                 <div class="form-group col-sm-6">
                     <label for="address" class="col-sm-4 control-label" >Username</label>
                     <div class="col-sm-8">
@@ -145,7 +145,7 @@
 
                     </div>
                 </div>
-                <br>Role<hr>
+                <h4>Role</h4><hr>
                 <div class="form-group col-sm-6">
                     <label for="address" class="col-sm-4 control-label" >Role</label>
                     <div class="col-sm-8">
@@ -198,7 +198,7 @@
         </div>
 
         <div class="modal-footer">
-            <button class="btn btn-primary" type="submit" id="saveHiker" onclick="return createHiker();" style="position: relative; top:110px;">Save</button>
+            <button class="btn btn-primary" type="submit" id="saveHiker" onclick="return createHiker();" style="position: relative; ">Save</button>
             <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
         </div>
 
