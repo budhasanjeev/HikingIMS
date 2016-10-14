@@ -41,7 +41,7 @@
 
                 <h4 class="modal-title">New Hiker</h4>
             </div>
-            <div class="modal-body" style="height: 320px">
+            <div class="modal-body" style="height: 280px">
                 <g:form role="form" name="createHikerForm" id="createHikerForm">
                     <input type="hidden" name="id" id="hiker_id">
 
@@ -153,32 +153,6 @@
 
                         </div>
                     </div>
-
-                    <div class="form-group col-sm-6">
-                        <label for="address" class="col-sm-4 control-label" >Username</label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control" id="username" name="username" placeholder=""/>
-                        </div>
-                        <div class="col-sm-4">
-
-                        </div>
-                        <div class="col-sm-8" id="usernameDiv" style="color: #FF0000">
-
-                        </div>
-                    </div>
-                    <div class="form-group col-sm-6">
-                        <label for="address" class="col-sm-4 control-label" >Password</label>
-                        <div class="col-sm-8">
-                            <input type="password" class="form-control" id="password" name="password" />
-                        </div>
-                        <div class="col-sm-4">
-
-                        </div>
-                        <div class="col-sm-8" id="passwordDiv" style="color: #FF0000">
-
-                        </div>
-                    </div>
-
 
 
                         <div class="form-group col-sm-6">
