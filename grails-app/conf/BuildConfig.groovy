@@ -58,6 +58,7 @@ grails.project.dependency.resolution = {
         compile ('ar.com.fdvs:DynamicJasper:5.0.0')
         // compile 'net.sf.jasperreports:jasperreports:6.1.0'
         runtime 'net.sourceforge.jexcelapi:jxl:2.6.12'
+        runtime 'org.springframework:spring-test:3.1.0.RELEASE'
     }
 
     plugins {
@@ -74,10 +75,19 @@ grails.project.dependency.resolution = {
         compile ":jquery-ui:1.8.24"
         compile "org.grails.plugins:quartz:1.0.2"
 
+        compile "org.grails.plugins:rendering:1.0.0"
+
+
         // plugins needed at runtime but not for compilation
         runtime ":hibernate4:4.3.6.1" // or ":hibernate:3.6.10.18"
         runtime ":database-migration:1.4.0"
         runtime ":jquery:1.11.1"
+        compile(":rendering:1.0.0"){
+            excludes(
+                    [group:'org.xhtmlrenderer'],
+                    [group:'com.lowagie']
+            )
+        }
 
 
 
