@@ -31,10 +31,10 @@
         </table>
 
         <g:if test="${hikerInfo?.isInHiker}">
-            <input type="button" class="btn btn-warning" id="two" onclick="sendName();" value="Button" style="background-color:darkblue" disabled="true">
+            <input type="button" class="btn btn-warning" id="two" onclick="sendName();" value="Send Name" style="background-color:darkblue" disabled="true">
         </g:if>
         <g:else>
-            <input type="button" class="btn btn-warning" id="two" onclick="sendName();" value="Button">
+            <input type="button" class="btn btn-warning" id="two" onclick="sendName();" value="Send Name">
         </g:else>
         <br>
         <div id="msg">

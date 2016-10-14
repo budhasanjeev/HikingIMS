@@ -84,11 +84,14 @@ class ExpenseController {
         }
 
     }
+    @Secured('ROLE_ADMIN')
     def downloadExpense(){
         println "id - " + params.id
         def expense = Expense.get(params.id as long);
+
         response.setContentType("application/pdf")
         response.setHeader("Content-Disposition", "attachment; filename=Expense.pdf")
-        renderPdf(template: '/layouts/expenseReport', model: [expense: expense])
+
+        renderPdf ([template: 'expenseReport', model: [expense: expense]])
     }
 }

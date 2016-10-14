@@ -23,7 +23,7 @@ class HikerController {
         UserRole userRole = new UserRole()
         userRole.user = user
         userRole.role = role
-        userRole.save()
+        userRole.save(flush: true, failOnError: true)
         def hiker = new Hiker(params);
         hiker.isTerminated = false
         hiker.isInHiker = false

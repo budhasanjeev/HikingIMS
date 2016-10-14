@@ -35,11 +35,11 @@ class HikeController {
 
     def delete(){
 
-        def hiker = Hiker.findById(params.id as long)
+        def hike = Hike.findById(params.id as long)
 
-        hiker?.delete(flush: true)
+        hike?.delete(flush: true)
 
-        if(Hiker.findById(params.id as long)){
+        if(Hike.findById(params.id as long)){
             return render ([messageType:"Error"] as JSON)
         }else{
             return render ([messageType:"Success"] as JSON)

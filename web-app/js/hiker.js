@@ -40,7 +40,6 @@ $(document).ready(function() {
 
 
 function changeHiker(){
-    alert("Shownn1");
     $('#insert-hiker').modal('show');
     $('#insert-hiker .modal-title').html("Add New Hiker");
     $('#insert-hiker button[type=submit]').html("Save");
