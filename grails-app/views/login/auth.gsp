@@ -143,61 +143,62 @@
 %{--<div class='login_message'>${hims.Hike.findByDeadLine(false)}</div>--}%
 %{--</g:if>--}%
 
+<div class="navbar navbar-default navbar-fixed-top logo">
 
 
+	<g:link controller="home" action="index">
+		<img class="logoImage" src="${resource(dir: 'images', file: 'hiking_logo.gif')}" height="100%">
+	</g:link>
+</div >
 
-						<div class="navbar navbar-default navbar-fixed-top logo">
+<div class="length container-fluid ">
 
+	<div class="row">
 
-								<g:link controller="home" action="index">
-									<img class="logoImage" src="${resource(dir: 'images', file: 'hiking_logo.gif')}" height="100%">
-								</g:link>
-  						</div >
+		<div class="col-md-8 ">
+			Content Area
+		</div>
+		<div class="col-md-4">
 
-						<div class="length container-fluid ">
+			<div class="login-page">
+				<div class="fheader"><b><g:message code="springSecurity.login.header"/></b></div>
 
-							<div class="row">
-
-									<div class="col-md-8 ">
-									Content Area
-									</div>
-									<div class="col-md-4">
-
-									<div class="login-page">
-									<div class="fheader"><b><g:message code="springSecurity.login.header"/></b></div>
-
-									<g:if test='${flash.message}'>
-									<div class='login_message'>${flash.message}</div>
-									</g:if>
-									<div class="form">
-									<form action='${postUrl}' method='POST' id='loginForm' class='cssform' autocomplete='off'>
+				<g:if test='${flash.message}'>
+					<div class='login_message'>${flash.message}</div>
+				</g:if>
+				<div class="form">
+					<form action='${postUrl}' method='POST' id='loginForm' class='cssform' autocomplete='off'>
 
 
-									<input type='text' class='text_' name='j_username' id='username' placeholder="Username"/>
-
-
-
-
-									<input type='password' class='text_' name='j_password' id='password' placeholder="Password"/>
+						<input type='text' class='text_' name='j_username' id='username' placeholder="Username"/>
 
 
 
 
-									<input type='submit' id="button"  value='${message(code: "springSecurity.login.button")}'/>
-
-									</form>
-
-
-									</div>
-									</div>
-									</div>
+						<input type='password' class='text_' name='j_password' id='password' placeholder="Password"/>
 
 
 
 
+						<input type='submit' id="button"  value='${message(code: "springSecurity.login.button")}'/>
 
-							</div>
-						</div>
+					</form>
+					<g:link controller="login" action="signUp"><button>Sign Up</button></g:link>
+
+
+				</div>
+			</div>
+		</div>
+
+
+
+
+
+	</div>
+</div>
+
+
+
 
 </body>
 </html>

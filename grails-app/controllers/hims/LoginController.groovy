@@ -51,6 +51,12 @@ class LoginController {
 		}
 	}
 
+	def signUp(){
+		println "i am hereee!!!!"
+		render(view:'signUp')
+	}
+
+
 	/**
 	 * Show the login page.
 	 */

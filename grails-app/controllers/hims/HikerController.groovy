@@ -59,6 +59,11 @@ class HikerController {
 
     def update(){
 
+        if(params.hiddenMsg){
+            println "params" + params
+            redirect(controller: 'home', action: 'studentView')
+        }
+
         def hiker = Hiker.findById(params.id as long)
 
         hiker.properties = params
@@ -88,6 +93,10 @@ class HikerController {
         additionalInfo['hikeInformation'] = hikeLists
 
         return render(additionalInfo as JSON)
+    }
+
+    def formSave(){
+
     }
 
 }
