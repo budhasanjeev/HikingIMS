@@ -3,6 +3,8 @@ package hims
 import grails.converters.JSON
 import grails.plugin.springsecurity.annotation.Secured
 
+import java.security.SecureRandom
+
 @Secured('ROLE_ADMIN')
 class HikerController {
 
@@ -92,6 +94,29 @@ class HikerController {
     }
 
     def formSave(){
+        println params
+        User user = new User()
+        String generatedRandomPassword = new BigInteger(64, new SecureRandom()).toString(32);
+        user.username = params.firstName.toString().toLowerCase()+'_'+ params.rollNumber;
+        user.password= generatedRandomPassword;
+        user.save(flush: true, failOnError: true);
+
+        def role = Role.get(3)
+
+        UserRole userRole = new UserRole()
+        userRole.user=user
+        userRole.role = role
+
+        Hiker hiker= new Hiker(params)
+        hiker.isTerminated = false
+        hiker.isInHiker = false
+
+        if (hiker.save(flush: true, failOnError: true)){
+            return render ([messageType:"Success"] as JSON)
+        }
+        else {
+            return render ([messageType:"Error"] as JSON)
+        }
 
     }
 
