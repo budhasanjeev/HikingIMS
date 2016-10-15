@@ -40,7 +40,7 @@
                 {
                     var datas = $('#updateUserForm').serialize();
                     $.ajax({
-                        url: hikerUrl.updateHikerUrl,
+                        url: ${createLink(controller: 'hiker', action: 'save')},
                         data:datas,
                         success:function(resp){
                             $(".editable").attr("readonly","readonly");
@@ -97,24 +97,32 @@
                     </thead>
                     <tbody>
                         <g:form role="form" id="updateUserForm" name="updateUserForm">
-
+                            <g:hiddenField name="hiddenMsg" value="second"/>
                             <tr>
-                                <td>Name</td>
-                                <td><input type="text" readonly="readonly" class="editable" value="${hikerInfo?.firstName?:''} ${hikerInfo?.middleName?:''} ${hikerInfo?.lastName?:''}"/> </td>
+                                <td>First Name</td>
+                                <td><input type="text" readonly="readonly" id="firstName" name="firstName" class="editable" value="${hikerInfo?.firstName?:''} ${hikerInfo?.middleName?:''} ${hikerInfo?.lastName?:''}"/> </td>
+                            </tr>
+                            <tr>
+                                <td>Middle Name</td>
+                                <td><input type="text" readonly="readonly" id="middleName" name="middleName" class="editable" value="${hikerInfo?.middleName?:''} ${hikerInfo?.middleName?:''} ${hikerInfo?.lastName?:''}"/> </td>
+                            </tr>
+                            <tr>
+                                <td>Last Name</td>
+                                <td><input type="text" readonly="readonly" id="lastName" name="lastName" class="editable" value="${hikerInfo?.lastName?:''} ${hikerInfo?.lastName?:''} "/> </td>
                             </tr>
                             <tr>
                                 <td>Username</td>
-                                <td><input type="text" readonly="readonly" value="${hikerInfo?.user?.username?:''} "/> </td>
+                                <td><input type="text" readonly="readonly" id="username" name="username" value="${hikerInfo?.user?.username?:''} "/> </td>
                             </tr>
                             <g:if test="${hikerInfo?.batch}">
                                 <tr>
                                     <td>Batch</td>
-                                    <td><input type="text" readonly="readonly" class="editable" value="${hikerInfo?.batch}"/> </td>
+                                    <td><input type="text" readonly="readonly" id="batch" name="batch" class="editable" value="${hikerInfo?.batch}"/> </td>
 
                                 </tr>
                                 <tr>
                                     <td>Roll Number</td>
-                                    <td><input type="text" readonly="readonly" class="editable"  value="${hikerInfo?.rollNumber}"/> </td>
+                                    <td><input type="text" readonly="readonly" id="rollNumber" name="rollNumber" class="editable"  value="${hikerInfo?.rollNumber}"/> </td>
 
 
                                 </tr>
@@ -128,12 +136,12 @@
                             </g:else>
                             <tr>
                                 <td>Address</td>
-                                <td><input type="text" readonly="readonly" class="editable" value="${hikerInfo?.address?:''} "/> </td>
+                                <td><input type="text" readonly="readonly" id="address" name="address" class="editable" value="${hikerInfo?.address?:''} "/> </td>
                             </tr>
                             <tr>
                             <tr>
                                 <td>Mobile Number</td>
-                                <td><input type="text" readonly="readonly"class="editable"  value="${hikerInfo?.mobileNumber?:''} "/> </td>
+                                <td><input type="text" readonly="readonly"  id="mobileNumber" name="mobileNumber" class="editable"  value="${hikerInfo?.mobileNumber?:''} "/> </td>
                             </tr>
 
                             <tr>
@@ -142,7 +150,7 @@
                             </tr>
                             <tr>
                                 <td>Food Preference</td>
-                                <td><input type="text" readonly="readonly" class="editable" value="${hikerInfo?.foodPreferences?:''} "/> </td>
+                                <td><input type="text" readonly="readonly" id="foodPreference" name="foodPreferences" class="editable" value="${hikerInfo?.foodPreferences?:''} "/> </td>
                             </tr>
                         </g:form>
                             <tr>

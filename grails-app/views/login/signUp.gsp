@@ -42,7 +42,7 @@
                 <h4 class="modal-title">New Hiker</h4>
             </div>
             <div class="modal-body" style="height: 280px">
-                <g:form role="form" name="createHikerForm" id="createHikerForm">
+                <g:form controller="hiker" action="formSave">
                     <input type="hidden" name="id" id="hiker_id">
 
                     <div class="form-group col-sm-6">
