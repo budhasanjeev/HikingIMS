@@ -38,9 +38,19 @@
 
                 }else
                 {
+                    var datas = $('#updateUserForm').serialize();
+                    $.ajax({
+                        url: hikerUrl.updateHikerUrl,
+                        data:datas,
+                        success:function(resp){
+                            $(".editable").attr("readonly","readonly");
+                            $(".makeEditable").val('Edit');
+                            alert("wow Done!!!!");
+                        } ,error: function (er) {
+                            alert("Error")
+                        }
 
-                    $(".editable").attr("readonly","readonly");
-                    $(".makeEditable").val('Edit');
+                    })
                 }
 
 
@@ -86,62 +96,65 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>Name</td>
-                        <td><input type="text" readonly="readonly" class="editable" value="${hikerInfo?.firstName?:''} ${hikerInfo?.middleName?:''} ${hikerInfo?.lastName?:''}"/> </td>
-                    </tr>
-                    <tr>
-                        <td>Username</td>
-                        <td><input type="text" readonly="readonly" value="${hikerInfo?.user?.username?:''} "/> </td>
-                    </tr>
-                    <g:if test="${hikerInfo?.batch}">
-                        <tr>
-                            <td>Batch</td>
-                            <td><input type="text" readonly="readonly" class="editable" value="${hikerInfo?.batch}"/> </td>
+                        <g:form role="form" id="updateUserForm" name="updateUserForm">
 
-                        </tr>
-                        <tr>
-                            <td>Roll Number</td>
-                            <td><input type="text" readonly="readonly" class="editable"  value="${hikerInfo?.rollNumber}"/> </td>
+                            <tr>
+                                <td>Name</td>
+                                <td><input type="text" readonly="readonly" class="editable" value="${hikerInfo?.firstName?:''} ${hikerInfo?.middleName?:''} ${hikerInfo?.lastName?:''}"/> </td>
+                            </tr>
+                            <tr>
+                                <td>Username</td>
+                                <td><input type="text" readonly="readonly" value="${hikerInfo?.user?.username?:''} "/> </td>
+                            </tr>
+                            <g:if test="${hikerInfo?.batch}">
+                                <tr>
+                                    <td>Batch</td>
+                                    <td><input type="text" readonly="readonly" class="editable" value="${hikerInfo?.batch}"/> </td>
+
+                                </tr>
+                                <tr>
+                                    <td>Roll Number</td>
+                                    <td><input type="text" readonly="readonly" class="editable"  value="${hikerInfo?.rollNumber}"/> </td>
 
 
-                        </tr>
-s
-                    </g:if>
-                    <g:else>
-                        <tr>
-                            <td>Role</td>
-                            <td>Faculty/Admin</td>
+                                </tr>
+                            </g:if>
+                            <g:else>
+                                <tr>
+                                    <td>Role</td>
+                                    <td>Faculty/Admin</td>
 
-                        </tr>
-                    </g:else>
-                    <tr>
-                        <td>Address</td>
-                        <td><input type="text" readonly="readonly" class="editable" value="${hikerInfo?.address?:''} "/> </td>
-                    </tr>
-                    <tr>
-                    <tr>
-                        <td>Mobile Number</td>
-                        <td><input type="text" readonly="readonly"class="editable"  value="${hikerInfo?.mobileNumber?:''} "/> </td>
-                    </tr>
+                                </tr>
+                            </g:else>
+                            <tr>
+                                <td>Address</td>
+                                <td><input type="text" readonly="readonly" class="editable" value="${hikerInfo?.address?:''} "/> </td>
+                            </tr>
+                            <tr>
+                            <tr>
+                                <td>Mobile Number</td>
+                                <td><input type="text" readonly="readonly"class="editable"  value="${hikerInfo?.mobileNumber?:''} "/> </td>
+                            </tr>
 
-                    <tr>
-                        <td>Email-Address</td>
-                        <td><input type="text" readonly="readonly"class="editable"  value="${hikerInfo?.emailAddress?:''} "/> </td>
-                    </tr>
-                    <tr>
-                        <td>Food Preference</td>
-                        <td><input type="text" readonly="readonly" class="editable" value="${hikerInfo?.foodPreferences?:''} "/> </td>
-                    </tr>
-                    <tr>
-                        <td>
+                            <tr>
+                                <td>Email-Address</td>
+                                <td><input type="text" readonly="readonly"class="editable"  value="${hikerInfo?.emailAddress?:''} "/> </td>
+                            </tr>
+                            <tr>
+                                <td>Food Preference</td>
+                                <td><input type="text" readonly="readonly" class="editable" value="${hikerInfo?.foodPreferences?:''} "/> </td>
+                            </tr>
+                        </g:form>
+                            <tr>
+                                <td>
 
-                        </td>
-                        <td>
-                            <input type="button" class= "makeEditable" id="two" onclick="editable();" value="Edit">
+                                </td>
+                                <td>
+                                    <input type="button" class= "makeEditable" id="two" onclick="editable();" value="Edit">
 
-                        </td>
-                    </tr>
+                                </td>
+                            </tr>
+
                     </tbody>
                 </table>
             </div>
