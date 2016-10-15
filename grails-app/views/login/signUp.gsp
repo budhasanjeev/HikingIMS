@@ -41,7 +41,7 @@
 
                 <h4 class="modal-title">New Hiker</h4>
             </div>
-            <div class="modal-body" style="height: 280px">
+            <div class="modal-body" style="height: 310px">
                 <g:form controller="hiker" action="formSave">
                     <input type="hidden" name="id" id="hiker_id">
 
@@ -188,15 +188,30 @@
                             </div>
                         </div>
 
+                    <div class="form-group col-sm-6">
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <div class="col-sm-8">
+
+                        </div>
+                        <div class="col-sm-4">
+                            <g:actionSubmit value="Save"/>
+                            %{--<button class="btn btn-primary" type="submit" id="saveHiker"  style="position: relative; ">Save</button>--}%
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                        </div>
+
+                    </div>
+                    %{--<button class="btn btn-primary" type="submit" id="saveHiker"  style="position: relative; ">Save</button>--}%
+                    %{--<button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>--}%
 
 
                 </g:form>
             </div>
 
-            <div class="modal-footer">
-                <button class="btn btn-primary" type="submit" id="saveHiker" onclick="return createHiker();" style="position: relative; ">Save</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
-            </div>
+            %{--<div class="modal-footer">--}%
+                %{--<button class="btn btn-primary" type="submit" id="saveHiker"  style="position: relative; ">Save</button>--}%
+                %{--<button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>--}%
+            %{--</div>--}%
 
         </div>
 
