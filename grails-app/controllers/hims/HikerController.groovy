@@ -57,13 +57,9 @@ class HikerController {
         return render(hiker as JSON)
     }
 
+    @Secured('ROLE_STUDENT')
     def update(){
-
-        if(params.hiddenMsg){
-            println "params" + params
-            redirect(controller: 'home', action: 'studentView')
-        }
-
+        println "params = " + params
         def hiker = Hiker.findById(params.id as long)
 
         hiker.properties = params

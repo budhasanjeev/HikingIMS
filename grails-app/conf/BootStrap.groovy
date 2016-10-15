@@ -1,3 +1,4 @@
+import hims.Batch
 import hims.Hiker
 import hims.Role
 import hims.User
@@ -28,6 +29,14 @@ class BootStrap {
         Hiker studentHiker = Hiker.findById(2)?:new Hiker(firstName:'student',lastName:'student',mobileNumber:'9841423121',phoneNumber:'010101010',emailAddress:'student@gmail.com',address:'student',foodPreferences:'Vegeterian',isTerminated:false,isInHiker:false,user:student).save(flush: true,failOnError: true)
 
         UserRole.create(student, studenRole)
+
+
+        Batch batch = Batch.findById('1')?:new Batch(batch: '2015').save(flush: true, failOnError: true)
+        batch = Batch.findById('2')?:new Batch(batch: '2016').save(flush: true, failOnError: true)
+        batch = Batch.findById('3')?:new Batch(batch: '2017').save(flush: true, failOnError: true)
+        batch = Batch.findById('4')?:new Batch(batch: '2018').save(flush: true, failOnError: true)
+        batch = Batch.findById('5')?:new Batch(batch: '2019').save(flush: true, failOnError: true)
+
 
         //Creating folder to store Bills
         new File("Bills").mkdir()

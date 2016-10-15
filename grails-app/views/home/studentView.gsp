@@ -33,21 +33,30 @@
 
                 if( $(".makeEditable").val()=="Edit")
                 {
+                    console.log("I am here!!!")
                     $(".editable").removeAttr("readonly");
+                    $(".editableS").prop("disabled",false);
                     $(".makeEditable").val('Update');
 
-                }else
-                {
-                    var datas = $('#updateUserForm').serialize();
+                }
+                else{
+                    console.log("i am upto here!!!")
+
+                    var data = $('#updateUserForm').serialize();
+                    console.log(data)
                     $.ajax({
-                        url: ${createLink(controller: 'hiker', action: 'save')},
-                        data:datas,
-                        success:function(resp){
-                            $(".editable").attr("readonly","readonly");
-                            $(".makeEditable").val('Edit');
-                            alert("wow Done!!!!");
-                        } ,error: function (er) {
-                            alert("Error")
+                        url:"${createLink(controller: 'hiker', action: 'update')}",
+                        type:"POST",
+                        data:data,
+                        success: function(resp){
+                            if(resp.messageType == "Success"){
+                                $(".editable").attr("readonly","readonly");
+                                $(".editableS").prop("disabled",true);
+                                $(".makeEditable").val('Edit');
+                            }
+                            else{
+                                alert("Error while saving!!!")
+                            }
                         }
 
                     })
@@ -85,7 +94,6 @@
     <div class="container">
 
         <div class="col-md-5 ">
-            <g:hiddenField name="hikerId" id="hikerId" value="${hikerInfo?.id}"/>
             <div class="table-responsive">
                 <table class="table">
                     <thead>
@@ -97,18 +105,19 @@
                     </thead>
                     <tbody>
                         <g:form role="form" id="updateUserForm" name="updateUserForm">
+                            <g:hiddenField name="id" id="hikerId" value="${hikerInfo?.id}"/>
                             <g:hiddenField name="hiddenMsg" value="second"/>
                             <tr>
                                 <td>First Name</td>
-                                <td><input type="text" readonly="readonly" id="firstName" name="firstName" class="editable" value="${hikerInfo?.firstName?:''} ${hikerInfo?.middleName?:''} ${hikerInfo?.lastName?:''}"/> </td>
+                                <td><input type="text" readonly="readonly" id="firstName" name="firstName" class="editable" value="${hikerInfo?.firstName?:''} "/> </td>
                             </tr>
                             <tr>
                                 <td>Middle Name</td>
-                                <td><input type="text" readonly="readonly" id="middleName" name="middleName" class="editable" value="${hikerInfo?.middleName?:''} ${hikerInfo?.middleName?:''} ${hikerInfo?.lastName?:''}"/> </td>
+                                <td><input type="text" readonly="readonly" id="middleName" name="middleName" class="editable" value="${hikerInfo?.middleName?:''} "/> </td>
                             </tr>
                             <tr>
                                 <td>Last Name</td>
-                                <td><input type="text" readonly="readonly" id="lastName" name="lastName" class="editable" value="${hikerInfo?.lastName?:''} ${hikerInfo?.lastName?:''} "/> </td>
+                                <td><input type="text" readonly="readonly" id="lastName" name="lastName" class="editable" value="${hikerInfo?.lastName?:''}"/> </td>
                             </tr>
                             <tr>
                                 <td>Username</td>
@@ -117,7 +126,8 @@
                             <g:if test="${hikerInfo?.batch}">
                                 <tr>
                                     <td>Batch</td>
-                                    <td><input type="text" readonly="readonly" id="batch" name="batch" class="editable" value="${hikerInfo?.batch}"/> </td>
+                                    %{--<td><input type="text" readonly="readonly" id="batch" name="batch" class="editable" value="${hikerInfo?.batch}"/> </td>--}%
+                                    <td><g:select from="${hims.Batch.list().reverse()}" name="batch" id="batch" class="editableS" disabled="true" value="${hikerInfo?.batch}" optionKey="batch" optionValue="batch"/> </td>
 
                                 </tr>
                                 <tr>
@@ -150,7 +160,7 @@
                             </tr>
                             <tr>
                                 <td>Food Preference</td>
-                                <td><input type="text" readonly="readonly" id="foodPreference" name="foodPreferences" class="editable" value="${hikerInfo?.foodPreferences?:''} "/> </td>
+                                <td><g:select name="foodPreference" id="foodPreference" from="${['Vegetarian','Non-Vegetarian']}" class="editableS" disabled="true" value="${hikerInfo?.foodPreferences}"/></td>
                             </tr>
                         </g:form>
                             <tr>
@@ -158,7 +168,7 @@
 
                                 </td>
                                 <td>
-                                    <input type="button" class= "makeEditable" id="two" onclick="editable();" value="Edit">
+                                    <input type="button" class= "makeEditable" id="editButton" onclick="editable();" value="Edit"/>
 
                                 </td>
                             </tr>
@@ -167,35 +177,35 @@
                 </table>
             </div>
             %{--<div class="table-responsive">--}%
-                %{--<table class="table">--}%
-                    %{--<thead>--}%
-                    %{--<tr>--}%
-                        %{--<th>HIke you have attended</th>--}%
-                        %{--<th>${totalCount}</th>--}%
+            %{--<table class="table">--}%
+            %{--<thead>--}%
+            %{--<tr>--}%
+            %{--<th>HIke you have attended</th>--}%
+            %{--<th>${totalCount}</th>--}%
 
-                    %{--</tr>--}%
-                    %{--<tr>--}%
-                        %{--<td>S.No.</td>--}%
-                        %{--<td>Title</td>--}%
-                        %{--<td>Date of Hike</td>--}%
-                    %{--</tr>--}%
-                    %{--</thead>--}%
-                    %{--<tbody>--}%
-                        %{--<g:if test="${hikeList}">--}%
-                            %{--<g:each in="${hikeList}" var="hike" status="i">--}%
-                                %{--<tr>--}%
-                                    %{--<td>${i+1}</td>--}%
-                                    %{--<td>${hike?.title}</td>--}%
-                                    %{--<td><g:formatDate format="yyyy-MM-dd" date="${hike?.hikingDate}"/></td>--}%
+            %{--</tr>--}%
+            %{--<tr>--}%
+            %{--<td>S.No.</td>--}%
+            %{--<td>Title</td>--}%
+            %{--<td>Date of Hike</td>--}%
+            %{--</tr>--}%
+            %{--</thead>--}%
+            %{--<tbody>--}%
+            %{--<g:if test="${hikeList}">--}%
+            %{--<g:each in="${hikeList}" var="hike" status="i">--}%
+            %{--<tr>--}%
+            %{--<td>${i+1}</td>--}%
+            %{--<td>${hike?.title}</td>--}%
+            %{--<td><g:formatDate format="yyyy-MM-dd" date="${hike?.hikingDate}"/></td>--}%
 
-                                %{--</tr>--}%
-                            %{--</g:each>--}%
-                        %{--</g:if>--}%
-                        %{--<g:else>--}%
-                            %{--You haven't attended even a single hike!!!--}%
-                        %{--</g:else>--}%
-                    %{--</tbody>--}%
-                %{--</table>--}%
+            %{--</tr>--}%
+            %{--</g:each>--}%
+            %{--</g:if>--}%
+            %{--<g:else>--}%
+            %{--You haven't attended even a single hike!!!--}%
+            %{--</g:else>--}%
+            %{--</tbody>--}%
+            %{--</table>--}%
             %{--</div>--}%
         </div>
         <div class="col-md-1 ">
