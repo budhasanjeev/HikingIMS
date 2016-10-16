@@ -65,13 +65,12 @@ grails.project.dependency.resolution = {
         // plugins for the build system only
         build ":tomcat:7.0.55"
 
+
         // plugins for the compile step
-        compile ":scaffolding:2.1.2"
+        compile "org.grails.plugins:mail:1.0.7"
         compile ':cache:1.1.8'
         compile ":asset-pipeline:1.9.9"
         compile "org.grails.plugins:spring-security-core:2.0.0"
-
-
         compile ":jquery-ui:1.8.24"
         compile "org.grails.plugins:quartz:1.0.2"
 

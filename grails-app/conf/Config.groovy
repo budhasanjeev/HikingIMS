@@ -56,6 +56,18 @@ grails {
         }
         // escapes all not-encoded output at final stage of outputting
         // filteringCodecForContentType.'text/html' = 'html'
+
+    }
+    mail {
+        host = "smtp.gmail.com"
+        port = 465      //TODO
+        username = "hikingclub@deerwalk.edu.np" //college email
+        password = "MyHikingClub123" //college email password
+        props = ["mail.smtp.auth":"true",
+                 "mail.smtp.socketFactory.port":"465",
+                 "mail.smtp.socketFactory.class":"javax.net.ssl.SSLSocketFactory",
+                 "mail.smtp.socketFactory.fallback":"false"]
+
     }
 }
 
@@ -63,6 +75,8 @@ grails {
 grails.converters.encoding = "UTF-8"
 // scaffolding templates configuration
 grails.scaffolding.templates.domainSuffix = 'Instance'
+
+//grails.mail.ssl = "on"
 
 // Set to false to use the new Grails 1.2 JSONBuilder in the render method
 grails.json.legacy.builder = false

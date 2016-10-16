@@ -35,6 +35,8 @@ class LoginController {
 	 */
 	def authenticationTrustResolver
 
+
+
 	/**
 	 * Dependency injection for the springSecurityService.
 	 */
@@ -184,6 +186,7 @@ class LoginController {
 					"\n\nThanks," +
 					"\nThe HelpDesk Team.";
 			sendMail {
+				async true
 				to hiker.emailAddress
 				subject "Password Set"
 				text body
