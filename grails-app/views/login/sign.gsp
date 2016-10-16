@@ -42,13 +42,13 @@
                 <h4 class="modal-title">New Hiker</h4>
             </div>
             <div class="modal-body" style="height: 310px">
-                <g:form controller="hiker" action="formSave">
+                <g:form>
                     <input type="hidden" name="id" id="hiker_id">
 
                     <div class="form-group col-sm-6">
                         <label for="firstName" class="col-sm-4 control-label" >First Name</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Example : Sanjeev">
+                            <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Example : Sanjeev" required>
                         </div>
                         <div class="col-sm-4">
 
@@ -74,7 +74,7 @@
                     <div class="form-group col-sm-6">
                         <label for="lastName" class="col-sm-4 control-label" >Last Name</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Example : Budha">
+                            <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Example : Budha" required>
                         </div>
                         <div class="col-sm-4">
 
@@ -87,7 +87,7 @@
                     <div class="form-group col-sm-6">
                         <label for="mobileNumber" class="col-sm-4 control-label" >Mobile Number</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="mobileNumber" name="mobileNumber" placeholder="Example : 9843723195">
+                            <input type="text" class="form-control" id="mobileNumber" name="mobileNumber" placeholder="Example : 9843723195" required>
                         </div>
                         <div class="col-sm-4">
 
@@ -100,7 +100,7 @@
                     <div class="form-group col-sm-6">
                         <label for="phoneNumber" class="col-sm-4 control-label" >Phone Number</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Example : 083-690162"/>
+                            <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Example : 083-690162" >
                         </div>
                         <div class="col-sm-4">
 
@@ -113,7 +113,7 @@
                     <div class="form-group col-sm-6">
                         <label for="emailAddress" class="col-sm-4 control-label" >Email Address</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="emailAddress" name="emailAddress" placeholder="Example : sanjeevbudha@gmail.com"/>
+                            <input type="text" class="form-control" id="emailAddress" name="emailAddress" placeholder="Example : sanjeevbudha@gmail.com" required>
                         </div>
                         <div class="col-sm-4">
 
@@ -127,7 +127,7 @@
                     <div class="form-group col-sm-6">
                         <label for="address" class="col-sm-4 control-label" >Address</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="address" name="address" placeholder="Example : Sifal, Kathmandu"/>
+                            <input type="text" class="form-control" id="address" name="address" placeholder="Example : Sifal, Kathmandu" required>
                         </div>
                         <div class="col-sm-4">
 
@@ -195,9 +195,9 @@
 
                         </div>
                         <div class="col-sm-4">
-                            <g:actionSubmit value="Save"/>
+                            <g:actionSubmit value="SignUp" action="signUp"/>
                             %{--<button class="btn btn-primary" type="submit" id="saveHiker"  style="position: relative; ">Save</button>--}%
-                            <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+
                         </div>
 
                     </div>

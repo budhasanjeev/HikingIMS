@@ -183,7 +183,7 @@
 						<input type='submit' id="button"  value='${message(code: "springSecurity.login.button")}'/>
 
 					</form>
-					<g:link controller="login" action="signUp"><button>Sign Up</button></g:link>
+					<g:link controller="login" action="sign"><button>Sign Up</button></g:link>
 
 
 				</div>

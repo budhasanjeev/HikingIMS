@@ -25,6 +25,7 @@ import org.springframework.security.core.context.SecurityContextHolder as SCH
 import org.springframework.security.web.WebAttributes
 
 import javax.servlet.http.HttpServletResponse
+import java.security.SecureRandom
 
 @Secured('permitAll')
 class LoginController {
@@ -51,9 +52,8 @@ class LoginController {
 		}
 	}
 
-	def signUp(){
-		println "i am hereee!!!!"
-		render(view:'signUp')
+	def sign(){
+
 	}
 
 
@@ -151,5 +151,48 @@ class LoginController {
 	 */
 	def ajaxDenied() {
 		render([error: 'access denied'] as JSON)
+	}
+
+
+	def signUp(){
+		println "======>>>>>  " + params
+		String username = params.firstName.toString().toLowerCase()+"_"+ params.rollNumber.toString()
+		User user = new User()
+		String generatedRandomPassword = new BigInteger(64, new SecureRandom()).toString(32);
+		user.username = username
+		user.password= generatedRandomPassword;
+		user.save(flush: true, failOnError: true);
+
+		def role = Role.get(3)
+
+		UserRole userRole = new UserRole()
+		userRole.user=user
+		userRole.role = role
+
+		Hiker hiker= new Hiker(params)
+		hiker.isTerminated = false
+		hiker.isInHiker = false
+		hiker.user = user
+
+		if (hiker.save(flush: true, failOnError: true)){
+			def body = "\nHello," +
+					"\n\nYou (or someone pretending to be you) requested that your password be reset"+
+					"\nYour new  credentials are:" +
+					"\n\n\tUsername: $username" +
+					"\n\tPassword: $generatedRandomPassword" +
+					"\n\nYou can change this password once you login. " +
+					"\n\nThanks," +
+					"\nThe HelpDesk Team.";
+			sendMail {
+				to hiker.emailAddress
+				subject "Password Set"
+				text body
+			}
+			redirect(action: 'index')
+		}
+		else {
+			return hiker
+		}
+
 	}
 }

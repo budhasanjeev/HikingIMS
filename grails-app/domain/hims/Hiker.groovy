@@ -22,6 +22,7 @@ class Hiker {
 
     static constraints = {
         middleName(nullable:true)
+        phoneNumber(nullable:true)
         batch(nullable:true)
         rollNumber(nullable:true)
     }
