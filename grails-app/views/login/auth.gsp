@@ -184,6 +184,9 @@
 
 					</form>
 					<g:link controller="login" action="sign"><button>Sign Up</button></g:link>
+					<div style="text-align: center;">
+					<g:link controller="login" action="forgetPassword">forgot password?</g:link>
+					</div>
 
 
 				</div>

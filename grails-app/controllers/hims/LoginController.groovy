@@ -170,6 +170,7 @@ class LoginController {
 		UserRole userRole = new UserRole()
 		userRole.user=user
 		userRole.role = role
+		userRole.save(flush: true,failOnError: true)
 
 		Hiker hiker= new Hiker(params)
 		hiker.isTerminated = false
@@ -177,14 +178,13 @@ class LoginController {
 		hiker.user = user
 
 		if (hiker.save(flush: true, failOnError: true)){
-			def body = "\nHello," +
-					"\n\nYou (or someone pretending to be you) requested that your password be reset"+
-					"\nYour new  credentials are:" +
+			def body ="Hello ${Hiker.firstName}, \n\nYour credentials for HIMS have been created:" +
 					"\n\n\tUsername: $username" +
-					"\n\tPassword: $generatedRandomPassword" +
-					"\n\nYou can change this password once you login. " +
+					"\n\n\tPassword: $generatedRandomPassword" +
+					"\n\nYou can change this password once you login." +
 					"\n\nThanks," +
-					"\nThe HelpDesk Team.";
+					"\nThe Hiking Club"
+
 			sendMail {
 				async true
 				to hiker.emailAddress
@@ -197,5 +197,84 @@ class LoginController {
 			return hiker
 		}
 
+	}
+	def forgetPassword(){
+
+        render template: '/hiker/forgetPassword'
+
+
+	}
+	def validUser(def username)
+	{
+		print(username)
+		if (!User.findByUsername(username)) {
+			println("hererer")
+			return 'No user found with this username'
+
+		}
+
+		return 'valid'
+	}
+	def updatePassword(){
+		def username=params.username
+		println username
+
+		def status=validUser(username)
+		if (status.equals('valid'))
+
+		{
+			print("valid")
+			def user=User.findByUsername(username)
+			def hiker= Hiker.findByUser(user)
+			print(hiker.emailAddress)
+
+			println "ssss"
+			String generatedRandomPassword = new BigInteger(64, new SecureRandom()).toString(32);
+			def password=generatedRandomPassword
+			println password
+			status= applyUpdatePassword(user,password)
+			if(status.equals('success'))
+			{
+				print("send mail")
+				def bodyOfEmail = "\nHello," +
+						"\n\nYou (or someone pretending to be you) requested that your password be reset"+
+						"\nYour new  credentials are:" +
+						"\n\n\tUsername: $username" +
+						"\n\tPassword: $password" +
+						"\n\nYou can change this password once you login. " +
+						"\n\nThanks," +
+						"\nThe Hiking Club.";
+				sendMail {
+					async true
+					to hiker.emailAddress
+					subject "Password Set"
+					text bodyOfEmail
+				}
+				redirect(action: 'index')
+			}
+			else {
+				return hiker
+			}
+
+
+
+		}
+		else{
+			flash.message = 'Sorry we didnt find that username'
+			redirect(action:'forgotPassword', params: [messageType: 'error'])
+			//flash.messageType='error'
+			// redirect(action:'forgotPassword')
+			//render(flash.message)
+		}
+	}
+	def applyUpdatePassword(def user, def newPassword){
+		user.password = newPassword
+		if(!user.save(flush: true, failOnError: true)){
+			return 'error'
+		}
+		else {
+			print("new pw")
+			return 'success'
+		}
 	}
 }
