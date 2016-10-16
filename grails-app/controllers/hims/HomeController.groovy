@@ -10,16 +10,22 @@ class HomeController {
     def springSecurityService
 
     @Secured('permitAll')
+    def signUp()
+    {
+        render(view: "s")
+    }
     def index() {
+        println "ok here"
         if (springSecurityService.isLoggedIn()){
-
+            println "i passed the security"
 
             if(SpringSecurityUtils.ifAllGranted("ROLE_ADMIN")){
-
+                println "admin"
                 redirect(action: 'adminView')
             }
 
             else if (SpringSecurityUtils.ifAllGranted("ROLE_EDITOR")){
+                println "noooooooooooooooooo!!!!!!!!!11"
 
                 redirect(action: 'editorView')
             }
@@ -31,7 +37,7 @@ class HomeController {
             }
 
         }else {
-
+            println "what here"
             redirect(controller: 'login', action: 'auth')
         }
     }
@@ -64,5 +70,76 @@ class HomeController {
         hiker.isInHiker = true;
         hiker.save(flush: true, failOnError: true)
         return render ([messageType:"Successful"] as JSON)
+    }
+    def changePw()
+    {
+        render template: '/home/changePw'
+    }
+    def changePassword(){
+        def user = springSecurityService.currentUser
+        print("Check")
+        def status= validPassword(user,params.currentPassword,params.newPassword,params.repeatPassword)
+        def hiker=Hiker.findByUser(user)
+
+        def password=params.newPassword
+        def username= User.findByUsername(user)
+        print(username)
+
+
+        if(password?.length() > 20 || password?.length() < 5){
+
+            flash.message = "Password must be between 5 and 20 characters"
+            flash.messageType = "error"
+            redirect( controller: "issue", action: "index")
+        }
+
+        if(status.equals('valid')){
+            status= applyUpdatePassword(user,params.newPassword)
+            flash.message ='Password Updated'
+//            redirect( controller: "issue", action: "index",params: [messageType: 'success'])
+            def bodyOfEmail = "\nHello" +"\t"+
+                    ",\n\nThis mail is to inform you  that your password has been changed"+
+                    "\n\nTo log in please use the following credentials:"+
+                    "\n\n\tUsername: $username" +
+                    "\n\n\tPassword: $password" +
+                    "\n\nThanks,";
+            sendMail {
+                async true
+                to hiker.emailAddress
+                subject ": Password Changed"
+                text bodyOfEmail
+            }
+        }
+        else {
+            flash.message =status
+            redirect( controller: "issue", action: "index",params: [messageType: 'error'])
+        }
+    }
+
+    def validPassword(def user, def password, def newPassword, def newPassword2)
+
+    {
+        print("check")
+        if (!springSecurityService.passwordEncoder.isPasswordValid(user.password, password, null /*salt*/)) {
+            print("invalid")
+            return 'Invalid current password'
+        }
+
+        if (springSecurityService.passwordEncoder.isPasswordValid(user.password, newPassword, null /*salt*/)) {
+            print("same")
+            return 'New password is same as current password'
+        }
+        return 'valid'
+    }
+
+
+    def applyUpdatePassword(def user, def newPassword){
+        user.password = newPassword
+        if(!user.save(flush: true, failOnError: true)){
+            return 'error'
+        }
+        else {
+            return 'success'
+        }
     }
 }

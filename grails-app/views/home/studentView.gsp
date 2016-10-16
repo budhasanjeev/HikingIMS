@@ -170,7 +170,11 @@
                                 <td>
                                     <input type="button" class= "makeEditable" id="editButton" onclick="editable();" value="Edit"/>
 
+                                    <g:link controller="home" action="changePw">Change password?</g:link>
+
+
                                 </td>
+
                             </tr>
 
                     </tbody>
