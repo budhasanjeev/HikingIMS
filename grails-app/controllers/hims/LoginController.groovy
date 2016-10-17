@@ -261,7 +261,7 @@ class LoginController {
 		}
 		else{
 			flash.message = 'Sorry we didnt find that username'
-			redirect(action:'forgotPassword', params: [messageType: 'error'])
+			redirect(action:'forgetPassword', params: [messageType: 'error'])
 			//flash.messageType='error'
 			// redirect(action:'forgotPassword')
 			//render(flash.message)
