@@ -68,7 +68,7 @@ function check(){
         document.getElementById('titleDiv').innerHTML = "Title is empty!!!!";
         flag =  false;
     }
-    else if(!title.match(letters))
+    else if(!title.match)
     {
         $("#title").focus();
         document.getElementById('titleDiv').innerHTML = "Title is numeric!!!!";
@@ -159,55 +159,55 @@ function createHike(){
     var fAmPm = $("#finishAmPM").val();
     var letters = /^[a-zA-Z]+$/;
 
-
-    if(!title){
-        $("#title").focus();
-        document.getElementById('titleDiv').innerHTML = "Title is empty!!!!";
-        return false;
-    }
-
-
-
-
-    if(hType=='')
-    {
-        $("#hikingType").focus();
-        document.getElementById('hikingTypeDiv').innerHTML = "Select hiking type";
-        return false;
-    }
-    if(sHour=='') {
-        $("#startHours").focus();
-        document.getElementById('startTimeDiv').innerHTML = "Select Time";
-        return false;
-    }
-    if(sMin=='')
-    {
-        $("#startMins").focus();
-        document.getElementById('startTimeDiv').innerHTML ="Select Time";
-        return false;
-    }
-    if(sAmPm=='') {
-        $("#startAmPM").focus();
-        document.getElementById('startTimeDiv').innerHTML = "Select Time";
-        return false;
-    }
-    if(fHour=='') {
-        $("#finishHours").focus();
-        document.getElementById('finishTimeDiv').innerHTML = "Select Time";
-        return false;
-    }
-    if(fMin=='')
-    {
-        $("#finishMins").focus();
-        document.getElementById('finishTimeDiv').innerHTML ="Select Time";
-        return false;
-    }
-    if(fAmPm=='')
-    {
-        $("#finishAmPM").focus();
-        document.getElementById('finishTimeDiv').innerHTML ="Select Time";
-        return false;
-    }
+    //
+    //if(!title){
+    //    $("#title").focus();
+    //    document.getElementById('titleDiv').innerHTML = "Title is empty!!!!";
+    //    return false;
+    //}
+    //
+    //
+    //
+    //
+    //if(hType=='')
+    //{
+    //    $("#hikingType").focus();
+    //    document.getElementById('hikingTypeDiv').innerHTML = "Select hiking type";
+    //    return false;
+    //}
+    //if(sHour=='') {
+    //    $("#startHours").focus();
+    //    document.getElementById('startTimeDiv').innerHTML = "Select Time";
+    //    return false;
+    //}
+    //if(sMin=='')
+    //{
+    //    $("#startMins").focus();
+    //    document.getElementById('startTimeDiv').innerHTML ="Select Time";
+    //    return false;
+    //}
+    //if(sAmPm=='') {
+    //    $("#startAmPM").focus();
+    //    document.getElementById('startTimeDiv').innerHTML = "Select Time";
+    //    return false;
+    //}
+    //if(fHour=='') {
+    //    $("#finishHours").focus();
+    //    document.getElementById('finishTimeDiv').innerHTML = "Select Time";
+    //    return false;
+    //}
+    //if(fMin=='')
+    //{
+    //    $("#finishMins").focus();
+    //    document.getElementById('finishTimeDiv').innerHTML ="Select Time";
+    //    return false;
+    //}
+    //if(fAmPm=='')
+    //{
+    //    $("#finishAmPM").focus();
+    //    document.getElementById('finishTimeDiv').innerHTML ="Select Time";
+    //    return false;
+    //}
 
     var data = $("#createHikeForm").serialize();
 

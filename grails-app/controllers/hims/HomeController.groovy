@@ -10,10 +10,7 @@ class HomeController {
     def springSecurityService
 
     @Secured('permitAll')
-    def signUp()
-    {
-        render(view: "s")
-    }
+
     def index() {
         println "ok here"
         if (springSecurityService.isLoggedIn()){
@@ -77,42 +74,46 @@ class HomeController {
     }
     def changePassword(){
         def user = springSecurityService.currentUser
-        print("Check")
+        print(user)
+        print("Check = == = " + params)
+
         def status= validPassword(user,params.currentPassword,params.newPassword,params.repeatPassword)
         def hiker=Hiker.findByUser(user)
+        print(hiker)
 
-        def password=params.newPassword
-        def username= User.findByUsername(user)
-        print(username)
+        def password = params.newPassword
+        def trueUser = User.findByUsername(user)
+        def userName = trueUser?.username
+        print(trueUser)
 
 
         if(password?.length() > 20 || password?.length() < 5){
 
             flash.message = "Password must be between 5 and 20 characters"
             flash.messageType = "error"
-            redirect( controller: "issue", action: "index")
+            redirect( controller: "home", action: "changePassword")
         }
 
         if(status.equals('valid')){
             status= applyUpdatePassword(user,params.newPassword)
             flash.message ='Password Updated'
-//            redirect( controller: "issue", action: "index",params: [messageType: 'success'])
+            redirect( controller: "login", action: "auth",params: [messageType: 'success'])
             def bodyOfEmail = "\nHello" +"\t"+
                     ",\n\nThis mail is to inform you  that your password has been changed"+
                     "\n\nTo log in please use the following credentials:"+
-                    "\n\n\tUsername: $username" +
+                    "\n\n\tUsername: $userName" +
                     "\n\n\tPassword: $password" +
                     "\n\nThanks,";
             sendMail {
                 async true
                 to hiker.emailAddress
-                subject ": Password Changed"
+                subject "Password Changed"
                 text bodyOfEmail
             }
         }
         else {
             flash.message =status
-            redirect( controller: "issue", action: "index",params: [messageType: 'error'])
+            redirect( controller: "login", action: "auth",params: [messageType: 'error'])
         }
     }
 
