@@ -14,7 +14,7 @@
                     <label for="hike" class="col-sm-4 control-label" >Hike</label>
                     <div class="col-sm-8">
                         <g:select class="form-control" id="hike" name="hike_id"
-                                  from="${Hike.list()}"
+                                  from="${Hike.findAllByDeadLine(true)}"
                                   optionValue="title"
                                   optionKey="id"
                                   noSelection="['':' -- Select from below-- ']"
