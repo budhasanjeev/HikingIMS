@@ -225,6 +225,7 @@ class LoginController {
 		{
 			print("valid")
 			def user=User.findByUsername(username)
+			username = user?.username
 			def hiker= Hiker.findByUser(user)
 			print(hiker.emailAddress)
 
