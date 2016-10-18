@@ -74,17 +74,21 @@ class HomeController {
     }
     def changePassword(){
         def user = springSecurityService.currentUser
+        def userId = springSecurityService.currentUser.id
+        println "here ------------------------------------"
         print(user)
         print("Check = == = " + params)
 
         def status= validPassword(user,params.currentPassword,params.newPassword,params.repeatPassword)
+
+
         def hiker=Hiker.findByUser(user)
         print(hiker)
 
         def password = params.newPassword
-        def trueUser = User.findByUsername(user)
+        def trueUser = User.findById(userId)
         def userName = trueUser?.username
-        print(trueUser)
+        print("-------"+userName)
 
 
         if(password?.length() > 20 || password?.length() < 5){
@@ -113,20 +117,21 @@ class HomeController {
         }
         else {
             flash.message =status
-            redirect( controller: "login", action: "auth",params: [messageType: 'error'])
+            redirect( action: "changePw",params: [messageType: 'error'])
         }
     }
 
     def validPassword(def user, def password, def newPassword, def newPassword2)
-
     {
         print("check")
-        if (!springSecurityService.passwordEncoder.isPasswordValid(user.password, password, null /*salt*/)) {
+        if (!newPassword.toString().matches(newPassword2.toString())) {
             print("invalid")
             return 'Invalid current password'
         }
 
-        if (springSecurityService.passwordEncoder.isPasswordValid(user.password, newPassword, null /*salt*/)) {
+        boolean sameOrNot = springSecurityService.passwordEncoder.isPasswordValid(user.password, newPassword, null /*salt*/)
+        println "sameOrNot = $sameOrNot"
+        if (sameOrNot) {
             print("same")
             return 'New password is same as current password'
         }
