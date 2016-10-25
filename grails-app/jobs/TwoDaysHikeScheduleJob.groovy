@@ -5,7 +5,7 @@ class TwoDaysHikeScheduleJob {
     def hikeService
     static triggers = {
 //        cronExpression: '0 0 18 * * THURS';
-        cron name:'twodayhikeSchedule', cronExpression: '0 10 10 ? * MON';
+        cron name:'twodayhikeSchedule', cronExpression: '0 0 6 ? * FRI';
     }
     def execute(){
         println "Its in execution part2!!!!!!!!!!"
