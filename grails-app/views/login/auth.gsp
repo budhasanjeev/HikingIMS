@@ -4,6 +4,7 @@
 
 	<link href="${resource(dir: 'css', file: 'bootstrap.min.css')}" rel="stylesheet" type="text/css">
 	<link href="${resource(dir: 'css', file: 'hims.css')}" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Arvo|Ravi+Prakash" rel="stylesheet">
 	<style type='text/css' media='screen'>
 		.length{
 			margin-top:110px;
@@ -33,6 +34,14 @@
 		padding: 15px;
 		box-sizing: border-box;
 		font-size: 14px;
+	}
+
+	h2{
+		margin-right: 141px;
+		margin-left: 170px;
+		font-family: 'Ravi Prakash', cursive;
+		font-family: 'Arvo', serif;
+		font-size: 31px;
 	}
 
 	#button {
@@ -155,8 +164,8 @@
 
 	<div class="row">
 
-		<div class="col-md-8 ">
-			Content Area
+		<div class="col-md-8 content ">
+			<h2>Hiking Information Management System</h2>
 		</div>
 		<div class="col-md-4">
 
